@@ -1,0 +1,374 @@
+Blade Rush: 
+  name: 'Blade Rush'
+  type: 'Offensive'
+  max-level: 2
+  skill-req: 'Blade Combo'
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    level-base: '10'
+    level-scale: '2'
+    cost-base: '1'
+    cost-scale: '0'
+    cooldown-base: '30'
+    cooldown-scale: '-6'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - ''
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'DIAMOND_SWORD'
+  icon-durability: 0
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&3Requires Blade Combo.'
+  - '&eAdvanced melee skill. Deals massive'
+  - "&edamage. While active, you're immune"
+  - '&eto damage.'
+  - '&6Advanced skills cannot be'
+  - '&6empowered.'
+  - ''
+  - '&2Damage per Hit: {attr:skilld.value}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Single-b: 
+          type: 'target'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            range-base: '6'
+            range-scale: '0'
+            tolerance-base: '4'
+            tolerance-scale: '0'
+            group: 'Enemy'
+            wall: 'False'
+            indicator: '2D'
+            caster: 'false'
+          children: 
+            Damage-c: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: 'skilld'
+                counts: 'True'
+                type: 'Damage'
+                value-base: '18'
+                value-scale: '6'
+                true: 'False'
+                classifier: 'default'
+                indicator: '2D'
+              children:  {}
+            Warp Target-d: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                type: 'Caster to Target'
+                indicator: '2D'
+              children:  {}
+            Delay-e: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                delay-base: '0.5'
+                delay-scale: '0'
+                indicator: '2D'
+              children: 
+                Self-f: 
+                  type: 'target'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    indicator: '2D'
+                    group: 'enemy'
+                    wall: 'false'
+                    caster: 'false'
+                  children: 
+                    Particle-g: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        particle: 'Flame'
+                        arrangement: 'Circle'
+                        radius-base: '6'
+                        radius-scale: '0'
+                        particles-base: '6'
+                        particles-scale: '0'
+                        direction: 'XZ'
+                        visible-radius: '25'
+                        dx: '0'
+                        dy: '0'
+                        dz: '0'
+                        speed: '1'
+                        amount: '1'
+                        forward: '0'
+                        upward: '0'
+                        right: '0'
+                        indicator: '2D'
+                      children:  {}
+                    Sound-h: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        sound: 'Block Anvil Place'
+                        volume-base: '80'
+                        volume-scale: '0'
+                        pitch-base: '1.8'
+                        pitch-scale: '0'
+                        indicator: '2D'
+                      children:  {}
+                    Delay-i: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        delay-base: '0.5'
+                        delay-scale: '0'
+                        indicator: '2D'
+                      children: 
+                        Sound-j: 
+                          type: 'mechanic'
+                          indicator: '3D'
+                          data: 
+                            icon-key: ''
+                            counts: 'True'
+                            sound: 'Block Anvil Place'
+                            volume-base: '80'
+                            volume-scale: '0'
+                            pitch-base: '2'
+                            pitch-scale: '0'
+                            indicator: '2D'
+                          children:  {}
+                        Particle-k: 
+                          type: 'mechanic'
+                          indicator: '3D'
+                          data: 
+                            icon-key: ''
+                            counts: 'True'
+                            particle: 'Cloud'
+                            arrangement: 'Circle'
+                            radius-base: '1'
+                            radius-scale: '0'
+                            particles-base: '4'
+                            particles-scale: '0'
+                            direction: 'XZ'
+                            visible-radius: '25'
+                            dx: '0'
+                            dy: '0'
+                            dz: '0'
+                            speed: '1'
+                            amount: '1'
+                            forward: '0'
+                            upward: '0'
+                            right: '0'
+                            indicator: '2D'
+                          children:  {}
+                        Launch-l: 
+                          type: 'mechanic'
+                          indicator: '3D'
+                          data: 
+                            icon-key: ''
+                            counts: 'True'
+                            relative: 'Target'
+                            forward-base: '1'
+                            forward-scale: '0'
+                            upward-base: '2'
+                            upward-scale: '0'
+                            right-base: '0'
+                            right-scale: '0'
+                            indicator: '2D'
+                          children:  {}
+                        Trigger-m: 
+                          type: 'mechanic'
+                          indicator: '3D'
+                          data: 
+                            icon-key: ''
+                            counts: 'True'
+                            trigger: 'Land'
+                            duration-base: '10'
+                            duration-scale: '0'
+                            stackable: 'True'
+                            once: 'True'
+                            min-distance: '1'
+                            indicator: '2D'
+                          children: 
+                            Particle-n: 
+                              type: 'mechanic'
+                              indicator: '3D'
+                              data: 
+                                icon-key: ''
+                                counts: 'True'
+                                particle: 'Crit'
+                                arrangement: 'Circle'
+                                radius-base: '10'
+                                radius-scale: '0'
+                                particles-base: '10'
+                                particles-scale: '0'
+                                direction: 'XZ'
+                                visible-radius: '25'
+                                dx: '0'
+                                dy: '0'
+                                dz: '0'
+                                speed: '1'
+                                amount: '1'
+                                forward: '0'
+                                upward: '0'
+                                right: '0'
+                                indicator: '2D'
+                              children:  {}
+                            Sound-o: 
+                              type: 'mechanic'
+                              indicator: '3D'
+                              data: 
+                                icon-key: ''
+                                counts: 'True'
+                                sound: 'Block Anvil Place'
+                                volume-base: '80'
+                                volume-scale: '0'
+                                pitch-base: '0.6'
+                                pitch-scale: '0'
+                                indicator: '2D'
+                              children:  {}
+                            Area-p: 
+                              type: 'target'
+                              indicator: '3D'
+                              data: 
+                                icon-key: ''
+                                radius-base: '10'
+                                radius-scale: '0'
+                                group: 'Enemy'
+                                wall: 'True'
+                                caster: 'False'
+                                max-base: '99'
+                                max-scale: '0'
+                                random: 'False'
+                                indicator: '2D'
+                              children: 
+                                Damage-q: 
+                                  type: 'mechanic'
+                                  indicator: '3D'
+                                  data: 
+                                    icon-key: ''
+                                    counts: 'True'
+                                    type: 'Damage'
+                                    value-base: '18'
+                                    value-scale: '6'
+                                    true: 'False'
+                                    classifier: 'default'
+                                    indicator: '2D'
+                                  children:  {}
+                Area-r: 
+                  type: 'target'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    radius-base: '6'
+                    radius-scale: '0'
+                    group: 'Enemy'
+                    wall: 'True'
+                    caster: 'False'
+                    max-base: '99'
+                    max-scale: '0'
+                    random: 'False'
+                    indicator: '2D'
+                  children: 
+                    Damage-s: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        type: 'Damage'
+                        value-base: '18'
+                        value-scale: '6'
+                        true: 'False'
+                        classifier: 'default'
+                        indicator: '2D'
+                      children:  {}
+                    Push-t: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        type: 'Scaled'
+                        speed-base: '2'
+                        speed-scale: '0'
+                        source: 'none'
+                        indicator: '2D'
+                      children:  {}
+                    Potion-u: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        potion: 'Slow'
+                        ambient: 'False'
+                        tier-base: '3'
+                        tier-scale: '0'
+                        seconds-base: '1.5'
+                        seconds-scale: '0'
+                        indicator: '2D'
+                      children:  {}
+        Particle-v: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            particle: 'Angry Villager'
+            arrangement: 'Circle'
+            radius-base: '1'
+            radius-scale: '0'
+            particles-base: '4'
+            particles-scale: '0'
+            direction: 'XZ'
+            visible-radius: '25'
+            dx: '0'
+            dy: '0'
+            dz: '0'
+            speed: '1'
+            amount: '1'
+            forward: '0'
+            upward: '0'
+            right: '0'
+            indicator: '2D'
+          children:  {}
+        Sound-w: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            sound: 'Block Anvil Place'
+            volume-base: '80'
+            volume-scale: '0'
+            pitch-base: '1.6'
+            pitch-scale: '0'
+            indicator: '2D'
+          children:  {}

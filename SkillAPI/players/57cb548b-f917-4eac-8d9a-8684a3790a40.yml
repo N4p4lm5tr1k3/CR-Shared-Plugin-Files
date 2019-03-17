@@ -1,0 +1,44 @@
+limit: 3
+active: 1
+health: 20.0
+mana: 100.0
+accounts: 
+  acc1: 
+    classes: 
+      Warden: 
+        level: 20
+        points: 0
+        exp: 5.0
+    skills: 
+      Blade Technique: 
+        level: 0
+        points: 0
+      Blade Combo: 
+        level: 0
+        points: 0
+      Vitality Training: 
+        level: 5
+        points: 0
+      Knockout Punch: 
+        level: 1
+        points: 0
+      Vigorous Leap: 
+        level: 0
+        points: 0
+      Sharpshooter: 
+        level: 3
+        points: 0
+      Counter: 
+        level: 3
+        points: 0
+      Critical Strike: 
+        level: 3
+        points: 0
+      Traveller: 
+        level: 1
+        points: 0
+      Blade Rush: 
+        level: 0
+        points: 0
+    binds:  {}
+    hunger: 1.0

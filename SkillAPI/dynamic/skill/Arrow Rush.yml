@@ -1,0 +1,279 @@
+Arrow Rush: 
+  name: 'Arrow Rush'
+  type: 'Offensive'
+  max-level: 2
+  skill-req: 'Arrow Volley'
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    level-base: '10'
+    level-scale: '2'
+    cost-base: '1'
+    cost-scale: '0'
+    cooldown-base: '30'
+    cooldown-scale: '-6'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - ''
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'BOW'
+  icon-durability: 0
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&3Requires Arrow Volley.'
+  - '&eAdvanced ranged combo. Deals'
+  - '&emassive damage.'
+  - '&6Advanced skills cannot be'
+  - '&6empowered.'
+  - ''
+  - '&2Damage per Hit: {attr:skilld.value}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Repeat-b: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            repetitions-base: '2'
+            repetitions-scale: '0'
+            period: '0.6'
+            delay: '0'
+            stop-on-fail: 'False'
+            indicator: '2D'
+          children: 
+            Projectile-c: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                projectile: 'Arrow'
+                flaming: 'False'
+                cost: ''
+                group: 'Enemy'
+                spread: 'Cone'
+                amount-base: '1'
+                amount-scale: '0'
+                velocity-base: '2.5'
+                velocity-scale: '0'
+                angle-base: '30'
+                angle-scale: '0'
+                position: '1'
+                forward-base: '0'
+                forward-scale: '0'
+                upward-base: '0'
+                upward-scale: '0'
+                right-base: '0'
+                right-scale: '0'
+                use-effect: 'False'
+                indicator: '2D'
+              children: 
+                Damage-d: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: 'skilld'
+                    counts: 'True'
+                    type: 'Damage'
+                    value-base: '12'
+                    value-scale: '6'
+                    true: 'False'
+                    classifier: 'default'
+                    indicator: '2D'
+                  children:  {}
+            Sound-e: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                sound: 'Entity Arrow Shoot'
+                volume-base: '80'
+                volume-scale: '0'
+                pitch-base: '1.2'
+                pitch-scale: '0'
+                indicator: '2D'
+              children:  {}
+        Delay-f: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            delay-base: '1.2'
+            delay-scale: '0'
+            indicator: '2D'
+          children: 
+            Projectile-g: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                projectile: 'Arrow'
+                flaming: 'False'
+                cost: ''
+                group: 'Enemy'
+                spread: 'Cone'
+                amount-base: '4'
+                amount-scale: '1'
+                velocity-base: '3.5'
+                velocity-scale: '0'
+                angle-base: '30'
+                angle-scale: '0'
+                position: '1'
+                forward-base: '0'
+                forward-scale: '0'
+                upward-base: '0'
+                upward-scale: '0'
+                right-base: '0'
+                right-scale: '0'
+                use-effect: 'False'
+                indicator: '2D'
+              children: 
+                Damage-h: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    type: 'Damage'
+                    value-base: '12'
+                    value-scale: '6'
+                    true: 'False'
+                    classifier: 'default'
+                    indicator: '2D'
+                  children:  {}
+                Sound-i: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    sound: 'Entity Arrow Shoot'
+                    volume-base: '80'
+                    volume-scale: '0'
+                    pitch-base: '1.4'
+                    pitch-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Launch-j: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                relative: 'Target'
+                forward-base: '-2'
+                forward-scale: '0'
+                upward-base: '1'
+                upward-scale: '0'
+                right-base: '0'
+                right-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Delay-k: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                delay-base: '1.2'
+                delay-scale: '0'
+                indicator: '2D'
+              children: 
+                Projectile-l: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    projectile: 'Arrow'
+                    flaming: 'False'
+                    cost: ''
+                    group: 'Enemy'
+                    spread: 'Cone'
+                    amount-base: '8'
+                    amount-scale: '2'
+                    velocity-base: '3.5'
+                    velocity-scale: '0'
+                    angle-base: '30'
+                    angle-scale: '0'
+                    position: '1'
+                    forward-base: '0'
+                    forward-scale: '0'
+                    upward-base: '0'
+                    upward-scale: '0'
+                    right-base: '0'
+                    right-scale: '0'
+                    use-effect: 'False'
+                    indicator: '2D'
+                  children: 
+                    Damage-m: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        type: 'Damage'
+                        value-base: '12'
+                        value-scale: '6'
+                        true: 'False'
+                        classifier: 'default'
+                        indicator: '2D'
+                      children:  {}
+                Sound-n: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    sound: 'Entity Arrow Shoot'
+                    volume-base: '80'
+                    volume-scale: '0'
+                    pitch-base: '1.6'
+                    pitch-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Particle-o: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                particle: 'Cloud'
+                arrangement: 'Circle'
+                radius-base: '2'
+                radius-scale: '0'
+                particles-base: '4'
+                particles-scale: '0'
+                direction: 'XZ'
+                visible-radius: '25'
+                dx: '0'
+                dy: '0'
+                dz: '0'
+                speed: '1'
+                amount: '1'
+                forward: '0'
+                upward: '0'
+                right: '0'
+                indicator: '2D'
+              children:  {}

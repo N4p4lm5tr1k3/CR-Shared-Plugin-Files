@@ -1,0 +1,2674 @@
+loaded: 'true'
+Arrow Rush: 
+  name: 'Arrow Rush'
+  type: 'Offensive'
+  max-level: 2
+  skill-req: 'Arrow Volley'
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    level-base: '10'
+    level-scale: '2'
+    cost-base: '1'
+    cost-scale: '0'
+    cooldown-base: '30'
+    cooldown-scale: '-6'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - ''
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'BOW'
+  icon-durability: 0
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&3Requires Arrow Volley.'
+  - '&eAdvanced ranged combo. Deals'
+  - '&emassive damage.'
+  - '&6Advanced skills cannot be'
+  - '&6empowered.'
+  - ''
+  - '&2Damage per Hit: {attr:skilld.value}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Repeat-b: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            repetitions-base: '2'
+            repetitions-scale: '0'
+            period: '0.6'
+            delay: '0'
+            stop-on-fail: 'False'
+            indicator: '2D'
+          children: 
+            Projectile-c: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                projectile: 'Arrow'
+                flaming: 'False'
+                cost: ''
+                group: 'Enemy'
+                spread: 'Cone'
+                amount-base: '1'
+                amount-scale: '0'
+                velocity-base: '2.5'
+                velocity-scale: '0'
+                angle-base: '30'
+                angle-scale: '0'
+                position: '1'
+                forward-base: '0'
+                forward-scale: '0'
+                upward-base: '0'
+                upward-scale: '0'
+                right-base: '0'
+                right-scale: '0'
+                use-effect: 'False'
+                indicator: '2D'
+              children: 
+                Damage-d: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: 'skilld'
+                    counts: 'True'
+                    type: 'Damage'
+                    value-base: '12'
+                    value-scale: '6'
+                    true: 'False'
+                    classifier: 'default'
+                    indicator: '2D'
+                  children:  {}
+            Sound-e: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                sound: 'Entity Arrow Shoot'
+                volume-base: '80'
+                volume-scale: '0'
+                pitch-base: '1.2'
+                pitch-scale: '0'
+                indicator: '2D'
+              children:  {}
+        Delay-f: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            delay-base: '1.2'
+            delay-scale: '0'
+            indicator: '2D'
+          children: 
+            Projectile-g: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                projectile: 'Arrow'
+                flaming: 'False'
+                cost: ''
+                group: 'Enemy'
+                spread: 'Cone'
+                amount-base: '4'
+                amount-scale: '1'
+                velocity-base: '3.5'
+                velocity-scale: '0'
+                angle-base: '30'
+                angle-scale: '0'
+                position: '1'
+                forward-base: '0'
+                forward-scale: '0'
+                upward-base: '0'
+                upward-scale: '0'
+                right-base: '0'
+                right-scale: '0'
+                use-effect: 'False'
+                indicator: '2D'
+              children: 
+                Damage-h: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    type: 'Damage'
+                    value-base: '12'
+                    value-scale: '6'
+                    true: 'False'
+                    classifier: 'default'
+                    indicator: '2D'
+                  children:  {}
+                Sound-i: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    sound: 'Entity Arrow Shoot'
+                    volume-base: '80'
+                    volume-scale: '0'
+                    pitch-base: '1.4'
+                    pitch-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Launch-j: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                relative: 'Target'
+                forward-base: '-2'
+                forward-scale: '0'
+                upward-base: '1'
+                upward-scale: '0'
+                right-base: '0'
+                right-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Delay-k: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                delay-base: '1.2'
+                delay-scale: '0'
+                indicator: '2D'
+              children: 
+                Projectile-l: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    projectile: 'Arrow'
+                    flaming: 'False'
+                    cost: ''
+                    group: 'Enemy'
+                    spread: 'Cone'
+                    amount-base: '8'
+                    amount-scale: '2'
+                    velocity-base: '3.5'
+                    velocity-scale: '0'
+                    angle-base: '30'
+                    angle-scale: '0'
+                    position: '1'
+                    forward-base: '0'
+                    forward-scale: '0'
+                    upward-base: '0'
+                    upward-scale: '0'
+                    right-base: '0'
+                    right-scale: '0'
+                    use-effect: 'False'
+                    indicator: '2D'
+                  children: 
+                    Damage-m: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        type: 'Damage'
+                        value-base: '12'
+                        value-scale: '6'
+                        true: 'False'
+                        classifier: 'default'
+                        indicator: '2D'
+                      children:  {}
+                Sound-n: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    sound: 'Entity Arrow Shoot'
+                    volume-base: '80'
+                    volume-scale: '0'
+                    pitch-base: '1.6'
+                    pitch-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Particle-o: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                particle: 'Cloud'
+                arrangement: 'Circle'
+                radius-base: '2'
+                radius-scale: '0'
+                particles-base: '4'
+                particles-scale: '0'
+                direction: 'XZ'
+                visible-radius: '25'
+                dx: '0'
+                dy: '0'
+                dz: '0'
+                speed: '1'
+                amount: '1'
+                forward: '0'
+                upward: '0'
+                right: '0'
+                indicator: '2D'
+              children:  {}
+Arrow Volley: 
+  name: 'Arrow Volley'
+  type: 'Offensive'
+  max-level: 2
+  skill-req: 'Sharpshooter'
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    level-base: '5'
+    level-scale: '2'
+    cost-base: '1'
+    cost-scale: '0'
+    cooldown-base: '20'
+    cooldown-scale: '-4'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - ''
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'BOW'
+  icon-durability: 0
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&3Requires Sharpshooter.'
+  - '&eFires several arrows in a cone.'
+  - '&6When empowered: Grants a short'
+  - '&6speed boost.'
+  - ''
+  - '&2Damage: {attr:skilld.value}'
+  - '&2Arrows: {attr:projattack.amount}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Mana-b: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            type: 'Mana'
+            min-value-base: '100'
+            min-value-scale: '0'
+            max-value-base: '100'
+            max-value-scale: '0'
+            indicator: '2D'
+          children: 
+            Speed-c: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                multiplier-base: '1.4'
+                multiplier-scale: '0'
+                duration-base: '4'
+                duration-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Mana-d: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                type: 'Mana'
+                value-base: '-100'
+                value-scale: '0'
+                indicator: '2D'
+              children:  {}
+        Projectile-e: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: 'projattack'
+            counts: 'True'
+            projectile: 'Arrow'
+            flaming: 'False'
+            cost: ''
+            group: 'Enemy'
+            spread: 'Cone'
+            amount-base: '6'
+            amount-scale: '0'
+            velocity-base: '3'
+            velocity-scale: '0'
+            angle-base: '30'
+            angle-scale: '0'
+            position: '1'
+            forward-base: '0'
+            forward-scale: '0'
+            upward-base: '0'
+            upward-scale: '0'
+            right-base: '0'
+            right-scale: '0'
+            use-effect: 'False'
+            indicator: '2D'
+          children: 
+            Damage-f: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: 'skilld'
+                counts: 'True'
+                type: 'Damage'
+                value-base: '12'
+                value-scale: '6'
+                true: 'False'
+                classifier: 'default'
+                indicator: '2D'
+              children:  {}
+        Sound-g: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            sound: 'Entity Arrow Shoot'
+            volume-base: '80'
+            volume-scale: '0'
+            pitch-base: '1.2'
+            pitch-scale: '0'
+            indicator: '2D'
+          children:  {}
+Blade Combo: 
+  name: 'Blade Combo'
+  type: 'Offensive'
+  max-level: 2
+  skill-req: 'Blade Technique'
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    level-base: '5'
+    level-scale: '2'
+    cost-base: '1'
+    cost-scale: '0'
+    cooldown-base: '24'
+    cooldown-scale: '-8'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - ''
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'IRON_SWORD'
+  icon-durability: 0
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&3Requires Blade Technique.'
+  - '&eDash towards a target, dealing massive'
+  - '&edamage, before dealing damage to'
+  - '&enearby hostiles.'
+  - '&6When empowered: Slightly restores'
+  - '&6hitpoints.'
+  - ''
+  - '&2Initial Damage: {attr:skilld1.value}'
+  - '&2AoE Damage: {attr:skilld2.value}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Single-b: 
+          type: 'target'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            range-base: '5'
+            range-scale: '0'
+            tolerance-base: '1'
+            tolerance-scale: '0'
+            group: 'Enemy'
+            wall: 'False'
+            indicator: '2D'
+            caster: 'false'
+          children: 
+            Self-c: 
+              type: 'target'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                indicator: '2D'
+                group: 'enemy'
+                wall: 'false'
+                caster: 'false'
+              children: 
+                Particle Projectile-d: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    group: 'Enemy'
+                    spread: 'Cone'
+                    amount-base: '1'
+                    amount-scale: '0'
+                    velocity-base: '3'
+                    velocity-scale: '0'
+                    angle-base: '30'
+                    angle-scale: '0'
+                    position: '0'
+                    forward-base: '0'
+                    forward-scale: '0'
+                    upward-base: '0'
+                    upward-scale: '0'
+                    right-base: '0'
+                    right-scale: '0'
+                    gravity: '0'
+                    pierce: 'False'
+                    particle: 'Cloud'
+                    arrangement: 'Circle'
+                    radius-base: '4'
+                    radius-scale: '0'
+                    particles-base: '20'
+                    particles-scale: '0'
+                    direction: 'XZ'
+                    visible-radius: '25'
+                    dx: '0'
+                    dy: '0'
+                    dz: '0'
+                    speed: '1'
+                    amount: '1'
+                    frequency: '0.05'
+                    lifespan: '3'
+                    use-effect: 'False'
+                    indicator: '2D'
+                  children:  {}
+            Damage-e: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: 'skilld1'
+                counts: 'True'
+                type: 'Damage'
+                value-base: '18'
+                value-scale: '0'
+                true: 'False'
+                classifier: 'default'
+                indicator: '2D'
+              children:  {}
+            Warp Target-f: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                type: 'Caster to Target'
+                indicator: '2D'
+              children:  {}
+            Delay-g: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                delay-base: '0.5'
+                delay-scale: '0'
+                indicator: '2D'
+              children: 
+                Self-h: 
+                  type: 'target'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    indicator: '2D'
+                    group: 'enemy'
+                    wall: 'false'
+                    caster: 'false'
+                  children: 
+                    Sound-i: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        sound: 'Block Anvil Place'
+                        volume-base: '80'
+                        volume-scale: '0'
+                        pitch-base: '2'
+                        pitch-scale: '0'
+                        indicator: '2D'
+                      children:  {}
+                    Area-j: 
+                      type: 'target'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        radius-base: '4'
+                        radius-scale: '0'
+                        group: 'Enemy'
+                        wall: 'True'
+                        caster: 'False'
+                        max-base: '99'
+                        max-scale: '0'
+                        random: 'False'
+                        indicator: '2D'
+                      children: 
+                        Damage-k: 
+                          type: 'mechanic'
+                          indicator: '3D'
+                          data: 
+                            icon-key: 'skilld2'
+                            counts: 'True'
+                            type: 'Damage'
+                            value-base: '12'
+                            value-scale: '6'
+                            true: 'False'
+                            classifier: 'default'
+                            indicator: '2D'
+                          children:  {}
+                    Particle-l: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        particle: 'Cloud'
+                        arrangement: 'Circle'
+                        radius-base: '4'
+                        radius-scale: '0'
+                        particles-base: '20'
+                        particles-scale: '0'
+                        direction: 'XZ'
+                        visible-radius: '25'
+                        dx: '0'
+                        dy: '0'
+                        dz: '0'
+                        speed: '1'
+                        amount: '1'
+                        forward: '0'
+                        upward: '0'
+                        right: '0'
+                        indicator: '2D'
+                      children:  {}
+            Sound-m: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                sound: 'Block Anvil Place'
+                volume-base: '80'
+                volume-scale: '0'
+                pitch-base: '1.5'
+                pitch-scale: '0'
+                indicator: '2D'
+              children:  {}
+        Mana-n: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            type: 'Mana'
+            min-value-base: '100'
+            min-value-scale: '0'
+            max-value-base: '100'
+            max-value-scale: '0'
+            indicator: '2D'
+          children: 
+            Mana-o: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                type: 'Mana'
+                value-base: '-100'
+                value-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Heal-p: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                type: 'Health'
+                value-base: '4'
+                value-scale: '0'
+                indicator: '2D'
+              children:  {}
+Blade Rush: 
+  name: 'Blade Rush'
+  type: 'Offensive'
+  max-level: 2
+  skill-req: 'Blade Combo'
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    level-base: '10'
+    level-scale: '2'
+    cost-base: '1'
+    cost-scale: '0'
+    cooldown-base: '30'
+    cooldown-scale: '-6'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - ''
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'DIAMOND_SWORD'
+  icon-durability: 0
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&3Requires Blade Combo.'
+  - '&eAdvanced melee skill. Deals massive'
+  - "&edamage. While active, you're immune"
+  - '&eto damage.'
+  - '&6Advanced skills cannot be'
+  - '&6empowered.'
+  - ''
+  - '&2Damage per Hit: {attr:skilld.value}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Single-b: 
+          type: 'target'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            range-base: '6'
+            range-scale: '0'
+            tolerance-base: '4'
+            tolerance-scale: '0'
+            group: 'Enemy'
+            wall: 'False'
+            indicator: '2D'
+            caster: 'false'
+          children: 
+            Damage-c: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: 'skilld'
+                counts: 'True'
+                type: 'Damage'
+                value-base: '18'
+                value-scale: '6'
+                true: 'False'
+                classifier: 'default'
+                indicator: '2D'
+              children:  {}
+            Warp Target-d: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                type: 'Caster to Target'
+                indicator: '2D'
+              children:  {}
+            Delay-e: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                delay-base: '0.5'
+                delay-scale: '0'
+                indicator: '2D'
+              children: 
+                Self-f: 
+                  type: 'target'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    indicator: '2D'
+                    group: 'enemy'
+                    wall: 'false'
+                    caster: 'false'
+                  children: 
+                    Particle-g: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        particle: 'Flame'
+                        arrangement: 'Circle'
+                        radius-base: '6'
+                        radius-scale: '0'
+                        particles-base: '6'
+                        particles-scale: '0'
+                        direction: 'XZ'
+                        visible-radius: '25'
+                        dx: '0'
+                        dy: '0'
+                        dz: '0'
+                        speed: '1'
+                        amount: '1'
+                        forward: '0'
+                        upward: '0'
+                        right: '0'
+                        indicator: '2D'
+                      children:  {}
+                    Sound-h: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        sound: 'Block Anvil Place'
+                        volume-base: '80'
+                        volume-scale: '0'
+                        pitch-base: '1.8'
+                        pitch-scale: '0'
+                        indicator: '2D'
+                      children:  {}
+                    Delay-i: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        delay-base: '0.5'
+                        delay-scale: '0'
+                        indicator: '2D'
+                      children: 
+                        Sound-j: 
+                          type: 'mechanic'
+                          indicator: '3D'
+                          data: 
+                            icon-key: ''
+                            counts: 'True'
+                            sound: 'Block Anvil Place'
+                            volume-base: '80'
+                            volume-scale: '0'
+                            pitch-base: '2'
+                            pitch-scale: '0'
+                            indicator: '2D'
+                          children:  {}
+                        Particle-k: 
+                          type: 'mechanic'
+                          indicator: '3D'
+                          data: 
+                            icon-key: ''
+                            counts: 'True'
+                            particle: 'Cloud'
+                            arrangement: 'Circle'
+                            radius-base: '1'
+                            radius-scale: '0'
+                            particles-base: '4'
+                            particles-scale: '0'
+                            direction: 'XZ'
+                            visible-radius: '25'
+                            dx: '0'
+                            dy: '0'
+                            dz: '0'
+                            speed: '1'
+                            amount: '1'
+                            forward: '0'
+                            upward: '0'
+                            right: '0'
+                            indicator: '2D'
+                          children:  {}
+                        Launch-l: 
+                          type: 'mechanic'
+                          indicator: '3D'
+                          data: 
+                            icon-key: ''
+                            counts: 'True'
+                            relative: 'Target'
+                            forward-base: '1'
+                            forward-scale: '0'
+                            upward-base: '2'
+                            upward-scale: '0'
+                            right-base: '0'
+                            right-scale: '0'
+                            indicator: '2D'
+                          children:  {}
+                        Trigger-m: 
+                          type: 'mechanic'
+                          indicator: '3D'
+                          data: 
+                            icon-key: ''
+                            counts: 'True'
+                            trigger: 'Land'
+                            duration-base: '10'
+                            duration-scale: '0'
+                            stackable: 'True'
+                            once: 'True'
+                            min-distance: '1'
+                            indicator: '2D'
+                          children: 
+                            Particle-n: 
+                              type: 'mechanic'
+                              indicator: '3D'
+                              data: 
+                                icon-key: ''
+                                counts: 'True'
+                                particle: 'Crit'
+                                arrangement: 'Circle'
+                                radius-base: '10'
+                                radius-scale: '0'
+                                particles-base: '10'
+                                particles-scale: '0'
+                                direction: 'XZ'
+                                visible-radius: '25'
+                                dx: '0'
+                                dy: '0'
+                                dz: '0'
+                                speed: '1'
+                                amount: '1'
+                                forward: '0'
+                                upward: '0'
+                                right: '0'
+                                indicator: '2D'
+                              children:  {}
+                            Sound-o: 
+                              type: 'mechanic'
+                              indicator: '3D'
+                              data: 
+                                icon-key: ''
+                                counts: 'True'
+                                sound: 'Block Anvil Place'
+                                volume-base: '80'
+                                volume-scale: '0'
+                                pitch-base: '0.6'
+                                pitch-scale: '0'
+                                indicator: '2D'
+                              children:  {}
+                            Area-p: 
+                              type: 'target'
+                              indicator: '3D'
+                              data: 
+                                icon-key: ''
+                                radius-base: '10'
+                                radius-scale: '0'
+                                group: 'Enemy'
+                                wall: 'True'
+                                caster: 'False'
+                                max-base: '99'
+                                max-scale: '0'
+                                random: 'False'
+                                indicator: '2D'
+                              children: 
+                                Damage-q: 
+                                  type: 'mechanic'
+                                  indicator: '3D'
+                                  data: 
+                                    icon-key: ''
+                                    counts: 'True'
+                                    type: 'Damage'
+                                    value-base: '18'
+                                    value-scale: '6'
+                                    true: 'False'
+                                    classifier: 'default'
+                                    indicator: '2D'
+                                  children:  {}
+                Area-r: 
+                  type: 'target'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    radius-base: '6'
+                    radius-scale: '0'
+                    group: 'Enemy'
+                    wall: 'True'
+                    caster: 'False'
+                    max-base: '99'
+                    max-scale: '0'
+                    random: 'False'
+                    indicator: '2D'
+                  children: 
+                    Damage-s: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        type: 'Damage'
+                        value-base: '18'
+                        value-scale: '6'
+                        true: 'False'
+                        classifier: 'default'
+                        indicator: '2D'
+                      children:  {}
+                    Push-t: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        type: 'Scaled'
+                        speed-base: '2'
+                        speed-scale: '0'
+                        source: 'none'
+                        indicator: '2D'
+                      children:  {}
+                    Potion-u: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        potion: 'Slow'
+                        ambient: 'False'
+                        tier-base: '3'
+                        tier-scale: '0'
+                        seconds-base: '1.5'
+                        seconds-scale: '0'
+                        indicator: '2D'
+                      children:  {}
+        Particle-v: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            particle: 'Angry Villager'
+            arrangement: 'Circle'
+            radius-base: '1'
+            radius-scale: '0'
+            particles-base: '4'
+            particles-scale: '0'
+            direction: 'XZ'
+            visible-radius: '25'
+            dx: '0'
+            dy: '0'
+            dz: '0'
+            speed: '1'
+            amount: '1'
+            forward: '0'
+            upward: '0'
+            right: '0'
+            indicator: '2D'
+          children:  {}
+        Sound-w: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            sound: 'Block Anvil Place'
+            volume-base: '80'
+            volume-scale: '0'
+            pitch-base: '1.6'
+            pitch-scale: '0'
+            indicator: '2D'
+          children:  {}
+Blade Technique: 
+  name: 'Blade Technique'
+  type: 'Offensive'
+  max-level: 3
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    level-base: '1'
+    level-scale: '2'
+    cost-base: '1'
+    cost-scale: '0'
+    cooldown-base: '20'
+    cooldown-scale: '-3'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - ''
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'STONE_SWORD'
+  icon-durability: 0
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eCharge for a brief duration, before'
+  - '&edealing damage to all nearby foes.'
+  - '&6When empowered: the radius is'
+  - '&6doubled.'
+  - ''
+  - '&2AoE Radius: {attr:skillr.radius}'
+  - '&2AoE Damage: {attr:skilld.value}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Mana-b: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            type: 'Mana'
+            min-value-base: '100'
+            min-value-scale: '0'
+            max-value-base: '100'
+            max-value-scale: '0'
+            indicator: '2D'
+          children: 
+            Delay-c: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                delay-base: '1.8'
+                delay-scale: '-0.4'
+                indicator: '2D'
+              children: 
+                Area-d: 
+                  type: 'target'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    radius-base: '8'
+                    radius-scale: '1'
+                    group: 'Enemy'
+                    wall: 'True'
+                    caster: 'False'
+                    max-base: '99'
+                    max-scale: '0'
+                    random: 'False'
+                    indicator: '2D'
+                  children: 
+                    Damage-e: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: 'skilld'
+                        counts: 'True'
+                        type: 'Damage'
+                        value-base: '12'
+                        value-scale: '4'
+                        true: 'False'
+                        classifier: 'default'
+                        indicator: '2D'
+                      children:  {}
+            Mana-f: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                type: 'Mana'
+                value-base: '-100'
+                value-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Sound-g: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                sound: 'Block Anvil Use'
+                volume-base: '80'
+                volume-scale: '0'
+                pitch-base: '1.6'
+                pitch-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Else-h: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                indicator: '2D'
+              children: 
+                Sound-i: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    sound: 'Block Anvil Use'
+                    volume-base: '80'
+                    volume-scale: '0'
+                    pitch-base: '1.6'
+                    pitch-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Delay-j: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    delay-base: '1.8'
+                    delay-scale: '-0.4'
+                    indicator: '2D'
+                  children: 
+                    Area-k: 
+                      type: 'target'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        radius-base: '4'
+                        radius-scale: '0.5'
+                        group: 'Enemy'
+                        wall: 'True'
+                        caster: 'False'
+                        max-base: '99'
+                        max-scale: '0'
+                        random: 'False'
+                        indicator: '2D'
+                      children: 
+                        Damage-l: 
+                          type: 'mechanic'
+                          indicator: '3D'
+                          data: 
+                            icon-key: ''
+                            counts: 'True'
+                            type: 'Damage'
+                            value-base: '12'
+                            value-scale: '4'
+                            true: 'False'
+                            classifier: 'default'
+                            indicator: '2D'
+                          children:  {}
+                Particle-m: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    particle: 'Cloud'
+                    arrangement: 'Circle'
+                    radius-base: '4'
+                    radius-scale: '0.5'
+                    particles-base: '20'
+                    particles-scale: '0'
+                    direction: 'XZ'
+                    visible-radius: '25'
+                    dx: '0'
+                    dy: '0'
+                    dz: '0'
+                    speed: '1'
+                    amount: '1'
+                    forward: '0'
+                    upward: '0'
+                    right: '0'
+                    indicator: '2D'
+                  children:  {}
+            Particle-n: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                particle: 'Cloud'
+                arrangement: 'Circle'
+                radius-base: '8'
+                radius-scale: '1'
+                particles-base: '30'
+                particles-scale: '0'
+                direction: 'XZ'
+                visible-radius: '25'
+                dx: '0'
+                dy: '0'
+                dz: '0'
+                speed: '1'
+                amount: '1'
+                forward: '0'
+                upward: '0'
+                right: '0'
+                indicator: '2D'
+              children:  {}
+Counter: 
+  name: 'Counter'
+  type: 'Defensive'
+  max-level: 3
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    level-base: '1'
+    level-scale: '2'
+    cost-base: '1'
+    cost-scale: '0'
+    cooldown-base: '12'
+    cooldown-scale: '-0.5'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - ''
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'FEATHER'
+  icon-durability: 0
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eEnter a defensive stance. Taking'
+  - '&edamage while in this stance'
+  - '&emakes your next melee attack'
+  - '&ewithin 4 seconds deal bonus'
+  - '&edamage.'
+  - '&6When empowered: Gain a bonus '
+  - '&6to speed after a successful'
+  - '&6counter.'
+  - ''
+  - '&2Attack Multiplier: &6x{attr:skilld.value}'
+  - '&2Counter Duration: {attr:skille.duration}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Trigger-b: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: 'skille'
+            counts: 'True'
+            trigger: 'Took Physical Damage'
+            duration-base: '2'
+            duration-scale: '0.5'
+            stackable: 'True'
+            once: 'False'
+            type: 'Both'
+            target: 'True'
+            dmg-min: '0'
+            dmg-max: '999'
+            indicator: '2D'
+          children: 
+            Mana-c: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                type: 'Mana'
+                min-value-base: '100'
+                min-value-scale: '0'
+                max-value-base: '100'
+                max-value-scale: '0'
+                indicator: '2D'
+              children: 
+                Mana-d: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'False'
+                    type: 'Mana'
+                    value-base: '-100'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Speed-e: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'False'
+                    multiplier-base: '1.4'
+                    multiplier-scale: '0'
+                    duration-base: '6'
+                    duration-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Trigger-f: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                trigger: 'Physical Damage'
+                duration-base: '4'
+                duration-scale: '0'
+                stackable: 'True'
+                once: 'True'
+                type: 'Both'
+                target: 'True'
+                dmg-min: '0'
+                dmg-max: '999'
+                indicator: '2D'
+              children: 
+                Buff-g: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: 'skilld'
+                    counts: 'True'
+                    immediate: 'True'
+                    modifier: 'Multiplier'
+                    value-base: '2'
+                    value-scale: '0.5'
+                    indicator: '2D'
+                  children:  {}
+        Repeat-h: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            repetitions-base: '5'
+            repetitions-scale: '1'
+            period: '0.5'
+            delay: '0'
+            stop-on-fail: 'False'
+            indicator: '2D'
+          children: 
+            Sound-i: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                sound: 'Block Anvil Place'
+                volume-base: '80'
+                volume-scale: '0'
+                pitch-base: '1.6'
+                pitch-scale: '0'
+                indicator: '2D'
+              children:  {}
+        Defense Buff-j: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            type: 'Multiplier'
+            skill: 'False'
+            value-base: '0.05'
+            value-scale: '0'
+            seconds-base: '2'
+            seconds-scale: '0.5'
+            indicator: '2D'
+          children:  {}
+        Speed-k: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'False'
+            multiplier-base: '0.6'
+            multiplier-scale: '0'
+            duration-base: '2'
+            duration-scale: '0.5'
+            indicator: '2D'
+          children:  {}
+Critical Strike: 
+  name: 'Critical Strike'
+  type: 'Offensive'
+  max-level: 3
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    level-base: '1'
+    level-scale: '2'
+    cost-base: '1'
+    cost-scale: '0'
+    cooldown-base: '20'
+    cooldown-scale: '-3'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - ''
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'DIAMOND_SWORD'
+  icon-durability: 0
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eYour next melee attack within 4 '
+  - '&eseconds deals bonus damage.'
+  - '&6When empowered: Critical Strike will'
+  - '&6immobilize the target for 3 seconds.'
+  - ''
+  - '&2Damage Multiplier: {attr:skilld.value}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Trigger-b: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            trigger: 'Physical Damage'
+            duration-base: '4'
+            duration-scale: '0'
+            stackable: 'True'
+            once: 'True'
+            type: 'Both'
+            target: 'True'
+            dmg-min: '0'
+            dmg-max: '999'
+            indicator: '2D'
+          children: 
+            Buff-c: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: 'skilld'
+                counts: 'False'
+                immediate: 'True'
+                modifier: 'Multiplier'
+                value-base: '2'
+                value-scale: '0.5'
+                indicator: '2D'
+              children:  {}
+        Mana-d: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            type: 'Mana'
+            min-value-base: '100'
+            min-value-scale: '0'
+            max-value-base: '100'
+            max-value-scale: '0'
+            indicator: '2D'
+          children: 
+            Trigger-e: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                trigger: 'Physical Damage'
+                duration-base: '4'
+                duration-scale: '0'
+                stackable: 'True'
+                once: 'True'
+                type: 'Both'
+                target: 'False'
+                dmg-min: '0'
+                dmg-max: '999'
+                indicator: '2D'
+              children: 
+                Status-f: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'False'
+                    status: 'Root'
+                    duration-base: '3'
+                    duration-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Mana-g: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'False'
+                type: 'Mana'
+                value-base: '-100'
+                value-scale: '0'
+                indicator: '2D'
+              children:  {}
+        Sound-h: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'False'
+            sound: 'Block Anvil Place'
+            volume-base: '100'
+            volume-scale: '0'
+            pitch-base: '1.5'
+            pitch-scale: '0'
+            indicator: '2D'
+          children:  {}
+Knockout Punch: 
+  name: 'Knockout Punch'
+  type: 'Defensive'
+  max-level: 2
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    level-base: '1'
+    level-scale: '2'
+    cost-base: '1'
+    cost-scale: '0'
+    cooldown-base: '16'
+    cooldown-scale: '-6'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - ''
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'QUARTZ'
+  icon-durability: 0
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eWeakens and pushes a targeted'
+  - '&ehostile away from you.'
+  - '&6When empowered: Immobilizes'
+  - '&6the target.'
+  - ''
+  - '&2Damage: {attr:skilld.value}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Single-b: 
+          type: 'target'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            range-base: '5'
+            range-scale: '0'
+            tolerance-base: '4'
+            tolerance-scale: '0'
+            group: 'Enemy'
+            wall: 'False'
+            indicator: '2D'
+            caster: 'false'
+          children: 
+            Self-c: 
+              type: 'target'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                indicator: '2D'
+                group: 'enemy'
+                wall: 'false'
+                caster: 'false'
+              children: 
+                Mana-d: 
+                  type: 'condition'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    type: 'Mana'
+                    min-value-base: '100'
+                    min-value-scale: '0'
+                    max-value-base: '100'
+                    max-value-scale: '0'
+                    indicator: '2D'
+                  children: 
+                    Remember-e: 
+                      type: 'target'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        key: 'target'
+                        indicator: '2D'
+                        group: 'enemy'
+                        wall: 'false'
+                        caster: 'false'
+                      children: 
+                        Entity Type-f: 
+                          type: 'condition'
+                          indicator: '3D'
+                          data: 
+                            icon-key: ''
+                            types: 
+                            - 'Player'
+                            indicator: '2D'
+                          children: 
+                            Else-g: 
+                              type: 'condition'
+                              indicator: '3D'
+                              data: 
+                                icon-key: ''
+                                indicator: '2D'
+                              children: 
+                                Status-h: 
+                                  type: 'mechanic'
+                                  indicator: '3D'
+                                  data: 
+                                    icon-key: 'skillslow'
+                                    counts: 'True'
+                                    status: 'Root'
+                                    duration-base: '6'
+                                    duration-scale: '3'
+                                    indicator: '2D'
+                                  children:  {}
+                            Status-i: 
+                              type: 'mechanic'
+                              indicator: '3D'
+                              data: 
+                                icon-key: ''
+                                counts: 'True'
+                                status: 'Root'
+                                duration-base: '1.5'
+                                duration-scale: '0.75'
+                                indicator: '2D'
+                              children:  {}
+                    Mana-j: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        type: 'Mana'
+                        value-base: '-100'
+                        value-scale: '0'
+                        indicator: '2D'
+                      children:  {}
+            Damage-k: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: 'skilld'
+                counts: 'True'
+                type: 'Damage'
+                value-base: '6'
+                value-scale: '4'
+                true: 'False'
+                classifier: 'default'
+                indicator: '2D'
+              children:  {}
+            Launch-l: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: 'skillk'
+                counts: 'True'
+                relative: 'Between'
+                forward-base: '3'
+                forward-scale: '2'
+                upward-base: '0'
+                upward-scale: '0'
+                right-base: '0'
+                right-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Potion-m: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: 'skillslow'
+                counts: 'True'
+                potion: 'Slow'
+                ambient: 'True'
+                tier-base: '3'
+                tier-scale: '0'
+                seconds-base: '6'
+                seconds-scale: '2'
+                indicator: '2D'
+              children:  {}
+            Potion-n: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                potion: 'Weakness'
+                ambient: 'True'
+                tier-base: '3'
+                tier-scale: '0'
+                seconds-base: '6'
+                seconds-scale: '2'
+                indicator: '2D'
+              children:  {}
+            Remember Targets-o: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'False'
+                key: 'target'
+                indicator: '2D'
+              children:  {}
+        Delay-p: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            delay-base: '0.1'
+            delay-scale: '0'
+            indicator: '2D'
+          children: 
+            Forget Targets-q: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'target'
+                indicator: '2D'
+              children:  {}
+Rope Dart: 
+  name: 'Rope Dart'
+  type: 'Offensive, Mobility'
+  max-level: 3
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    level-base: '1'
+    level-scale: '0'
+    cost-base: '1'
+    cost-scale: '0'
+    cooldown-base: '12'
+    cooldown-scale: '-2'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - ''
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'TRIPWIRE_HOOK'
+  icon-durability: 0
+  icon-data: 2
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eBinds the target to you.'
+  - '&eCrouching while bound pulls both '
+  - '&eyou and the target closer. Cast on'
+  - '&eground for this skill to act as a '
+  - '&egrappling hook.'
+  - '&6When empowered: Grants a short'
+  - '&6health barrier.'
+  - ''
+  - '&2Bind Duration: {attr:skille.duration}'
+  - '&2Damage: {attr:skilld.value}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Sound-b: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            sound: 'Entity Arrow Shoot'
+            volume-base: '80'
+            volume-scale: '0'
+            pitch-base: '1.2'
+            pitch-scale: '0'
+            indicator: '2D'
+          children:  {}
+        Forget Targets-c: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            key: 'roped'
+            indicator: '2D'
+          children:  {}
+        Particle Projectile-d: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            group: 'Enemy'
+            spread: 'Cone'
+            amount-base: '1'
+            amount-scale: '0'
+            velocity-base: '4'
+            velocity-scale: '0'
+            angle-base: '30'
+            angle-scale: '0'
+            position: '0'
+            forward-base: '0'
+            forward-scale: '0'
+            upward-base: '0'
+            upward-scale: '0'
+            right-base: '0'
+            right-scale: '0'
+            gravity: '0'
+            pierce: 'False'
+            particle: 'Cloud'
+            arrangement: 'Circle'
+            radius-base: '1'
+            radius-scale: '0'
+            particles-base: '1'
+            particles-scale: '0'
+            direction: 'XZ'
+            visible-radius: '25'
+            dx: '0'
+            dy: '0'
+            dz: '0'
+            speed: '1'
+            amount: '1'
+            frequency: '0.05'
+            lifespan: '1'
+            use-effect: 'False'
+            indicator: '2D'
+          children: 
+            Repeat-e: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                repetitions-base: '5'
+                repetitions-scale: '1'
+                period: '1'
+                delay: '0'
+                stop-on-fail: 'False'
+                indicator: '2D'
+              children: 
+                Particle-f: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    particle: 'Flame'
+                    arrangement: 'Circle'
+                    radius-base: '1'
+                    radius-scale: '0'
+                    particles-base: '1'
+                    particles-scale: '0'
+                    direction: 'XZ'
+                    visible-radius: '25'
+                    dx: '0'
+                    dy: '0'
+                    dz: '0'
+                    speed: '1'
+                    amount: '1'
+                    forward: '0'
+                    upward: '1'
+                    right: '0'
+                    indicator: '2D'
+                  children:  {}
+            Damage-g: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                type: 'Damage'
+                value-base: '4'
+                value-scale: '1'
+                true: 'False'
+                classifier: 'default'
+                indicator: '2D'
+              children:  {}
+            Remember Targets-h: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'roped'
+                indicator: '2D'
+              children:  {}
+            Self-i: 
+              type: 'target'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                indicator: '2D'
+                group: 'enemy'
+                wall: 'false'
+                caster: 'false'
+              children: 
+                Trigger-j: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: 'skille'
+                    counts: 'True'
+                    trigger: 'Crouch'
+                    duration-base: '4'
+                    duration-scale: '1'
+                    stackable: 'True'
+                    once: 'True'
+                    type: 'Start Crouching'
+                    indicator: '2D'
+                  children: 
+                    Remember-k: 
+                      type: 'target'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        key: 'roped'
+                        indicator: '2D'
+                        group: 'enemy'
+                        wall: 'false'
+                        caster: 'false'
+                      children: 
+                        Push-l: 
+                          type: 'mechanic'
+                          indicator: '3D'
+                          data: 
+                            icon-key: ''
+                            counts: 'True'
+                            type: 'Fixed'
+                            speed-base: '-2'
+                            speed-scale: '0'
+                            source: 'none'
+                            indicator: '2D'
+                          children:  {}
+                    Push-m: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        type: 'Fixed'
+                        speed-base: '-2'
+                        speed-scale: '0'
+                        source: 'roped'
+                        indicator: '2D'
+                      children:  {}
+        Mana-n: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            type: 'Mana'
+            min-value-base: '100'
+            min-value-scale: '0'
+            max-value-base: '100'
+            max-value-scale: '0'
+            indicator: '2D'
+          children: 
+            Mana-o: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                type: 'Mana'
+                value-base: '-100'
+                value-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Potion-p: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                potion: 'Absorption'
+                ambient: 'False'
+                tier-base: '1'
+                tier-scale: '0'
+                seconds-base: '6'
+                seconds-scale: '0'
+                indicator: '2D'
+              children:  {}
+Sharpshooter: 
+  name: 'Sharpshooter'
+  type: 'Offensive'
+  max-level: 3
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    level-base: '1'
+    level-scale: '2'
+    cost-base: '1'
+    cost-scale: '0'
+    cooldown-base: '30'
+    cooldown-scale: '-5'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - ''
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'BOW'
+  icon-durability: 0
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eTemporarily increases your attack'
+  - '&edamage with bows.'
+  - '&6When empowered: Your next shot'
+  - '&6during Sharpshooter will immobilize'
+  - '&6the target for 4 seconds.'
+  - ''
+  - '&2Sharpshooter Duration: {attr:skille.duration}'
+  - '&2Damage Multiplier: {attr:skilld.value}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Mana-b: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            type: 'Mana'
+            min-value-base: '100'
+            min-value-scale: '0'
+            max-value-base: '100'
+            max-value-scale: '0'
+            indicator: '2D'
+          children: 
+            Trigger-c: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                trigger: 'Physical Damage'
+                duration-base: '6'
+                duration-scale: '2'
+                stackable: 'True'
+                once: 'True'
+                type: 'Both'
+                target: 'False'
+                dmg-min: '0'
+                dmg-max: '999'
+                indicator: '2D'
+              children: 
+                Status-d: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    status: 'Root'
+                    duration-base: '4'
+                    duration-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Mana-e: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                type: 'Mana'
+                value-base: '-100'
+                value-scale: '0'
+                indicator: '2D'
+              children:  {}
+        Trigger-f: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: 'skille'
+            counts: 'True'
+            trigger: 'Physical Damage'
+            duration-base: '6'
+            duration-scale: '2'
+            stackable: 'True'
+            once: 'False'
+            type: 'Both'
+            target: 'True'
+            dmg-min: '0'
+            dmg-max: '999'
+            indicator: '2D'
+          children: 
+            Buff-g: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: 'skilld'
+                counts: 'True'
+                immediate: 'True'
+                modifier: 'Multiplier'
+                value-base: '1.4'
+                value-scale: '0.1'
+                indicator: '2D'
+              children:  {}
+        Sound-h: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            sound: 'Block Anvil Place'
+            volume-base: '80'
+            volume-scale: '0'
+            pitch-base: '1.2'
+            pitch-scale: '0'
+            indicator: '2D'
+          children:  {}
+        Delay-i: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            delay-base: '6'
+            delay-scale: '2'
+            indicator: '2D'
+          children: 
+            Sound-j: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                sound: 'Block Anvil Place'
+                volume-base: '80'
+                volume-scale: '0'
+                pitch-base: '0.8'
+                pitch-scale: '0'
+                indicator: '2D'
+              children:  {}
+Slowfall: 
+  name: 'Slowfall'
+  type: 'Utility, Survival'
+  max-level: 2
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    level-base: '5'
+    level-scale: '2'
+    cost-base: '1'
+    cost-scale: '0'
+    cooldown-base: '12'
+    cooldown-scale: '-2'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - ''
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'JACK_O_LANTERN'
+  icon-durability: 0
+  icon-data: 2
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eTemporarily reduces fall damage.'
+  - ''
+  - '&2Damage Multiplier: &6x{attr:skille.multiplier}'
+  - '&2Duration: {attr:skille.seconds}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Immunity-b: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: 'skille'
+            counts: 'True'
+            type: 'Fall'
+            seconds-base: '4'
+            seconds-scale: '0'
+            multiplier-base: '0.25'
+            multiplier-scale: '-0.15'
+            indicator: '2D'
+          children:  {}
+        Sound-c: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            sound: 'Entity Arrow Hit'
+            volume-base: '80'
+            volume-scale: '0'
+            pitch-base: '1.2'
+            pitch-scale: '0'
+            indicator: '2D'
+          children:  {}
+        Particle-d: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            particle: 'Cloud'
+            arrangement: 'Circle'
+            radius-base: '1'
+            radius-scale: '0'
+            particles-base: '4'
+            particles-scale: '0'
+            direction: 'XZ'
+            visible-radius: '25'
+            dx: '0'
+            dy: '0'
+            dz: '0'
+            speed: '1'
+            amount: '1'
+            forward: '0'
+            upward: '0'
+            right: '0'
+            indicator: '2D'
+          children:  {}
+Traveller: 
+  name: 'Traveller'
+  type: 'Feat'
+  max-level: 1
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    level-base: '1'
+    level-scale: '0'
+    cost-base: '2'
+    cost-scale: '0'
+    cooldown-base: '0'
+    cooldown-scale: '0'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - ''
+  msg: '&6{player} &2has cast &6{skill}&r'
+  icon: 'LEATHER_BOOTS'
+  icon-durability: 0
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&ePermanently increases your'
+  - '&emovement speed.'
+  desc:  []
+  components: 
+    Initialize: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Passive-b: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            seconds-base: '60'
+            seconds-scale: '0'
+            indicator: '2D'
+          children: 
+            Speed-c: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                multiplier-base: '1.2'
+                multiplier-scale: '0'
+                duration-base: '60'
+                duration-scale: '0'
+                indicator: '2D'
+              children:  {}
+    Cleanup: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Speed-e: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            multiplier-base: '1'
+            multiplier-scale: '0'
+            duration-base: '60'
+            duration-scale: '0'
+            indicator: '2D'
+          children:  {}
+Vigorous Leap: 
+  name: 'Vigorous Leap'
+  type: 'Mobility'
+  max-level: 2
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    level-base: '1'
+    level-scale: '2'
+    cost-base: '1'
+    cost-scale: '0'
+    cooldown-base: '16'
+    cooldown-scale: '-6'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - ''
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'IRON_BOOTS'
+  icon-durability: 0
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - "&eLeap towards the direction you're"
+  - '&efacing, dealing damage to nearby'
+  - '&ehostiles upon landing.'
+  - '&6When empowered: Grants a'
+  - '&6temporary health barrier.'
+  - ''
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Launch-b: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            relative: 'Target'
+            forward-base: '3'
+            forward-scale: '0'
+            upward-base: '3'
+            upward-scale: '0'
+            right-base: '0'
+            right-scale: '0'
+            indicator: '2D'
+          children:  {}
+        Mana-c: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            type: 'Mana'
+            min-value-base: '100'
+            min-value-scale: '0'
+            max-value-base: '100'
+            max-value-scale: '0'
+            indicator: '2D'
+          children: 
+            Potion-d: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                potion: 'Absorption'
+                ambient: 'False'
+                tier-base: '1'
+                tier-scale: '0'
+                seconds-base: '8'
+                seconds-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Mana-e: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                type: 'Mana'
+                value-base: '-100'
+                value-scale: '0'
+                indicator: '2D'
+              children:  {}
+        Trigger-f: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            trigger: 'Land'
+            duration-base: '10'
+            duration-scale: '0'
+            stackable: 'True'
+            once: 'True'
+            min-distance: '1'
+            indicator: '2D'
+          children: 
+            Area-g: 
+              type: 'target'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                radius-base: '6'
+                radius-scale: '0'
+                group: 'Enemy'
+                wall: 'True'
+                caster: 'False'
+                max-base: '99'
+                max-scale: '0'
+                random: 'False'
+                indicator: '2D'
+              children: 
+                Damage-h: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    type: 'Damage'
+                    value-base: '8'
+                    value-scale: '2'
+                    true: 'False'
+                    classifier: 'default'
+                    indicator: '2D'
+                  children:  {}
+            Particle-i: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                particle: 'Crit'
+                arrangement: 'Circle'
+                radius-base: '6'
+                radius-scale: '0'
+                particles-base: '8'
+                particles-scale: '0'
+                direction: 'XZ'
+                visible-radius: '25'
+                dx: '0'
+                dy: '0'
+                dz: '0'
+                speed: '1'
+                amount: '1'
+                forward: '0'
+                upward: '0'
+                right: '0'
+                indicator: '2D'
+              children:  {}
+Vitality Training: 
+  name: 'Vitality Training'
+  type: 'Feat'
+  max-level: 5
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    level-base: '1'
+    level-scale: '2'
+    cost-base: '1'
+    cost-scale: '0'
+    cooldown-base: '0'
+    cooldown-scale: '0'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - ''
+  msg: '&6{player} &2has cast &6{skill}&r'
+  icon: 'JACK_O_LANTERN'
+  icon-durability: 0
+  icon-data: 2
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eReduces the amount of physical'
+  - '&edamage you receive from attacks.'
+  - ''
+  - '&2Damage Multiplier: {attr:skille.value}'
+  desc:  []
+  components: 
+    Initialize: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Passive-b: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'False'
+            seconds-base: '60'
+            seconds-scale: '0'
+            indicator: '2D'
+          children: 
+            Defense Buff-c: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: 'skille'
+                counts: 'False'
+                type: 'Multiplier'
+                skill: 'False'
+                value-base: '0.95'
+                value-scale: '-0.05'
+                seconds-base: '60'
+                seconds-scale: '0'
+                indicator: '2D'
+              children:  {}

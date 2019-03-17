@@ -1,0 +1,184 @@
+Counter: 
+  name: 'Counter'
+  type: 'Defensive'
+  max-level: 3
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    level-base: '1'
+    level-scale: '2'
+    cost-base: '1'
+    cost-scale: '0'
+    cooldown-base: '12'
+    cooldown-scale: '-0.5'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - ''
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'FEATHER'
+  icon-durability: 0
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eEnter a defensive stance. Taking'
+  - '&edamage while in this stance'
+  - '&emakes your next melee attack'
+  - '&ewithin 4 seconds deal bonus'
+  - '&edamage.'
+  - '&6When empowered: Gain a bonus '
+  - '&6to speed after a successful'
+  - '&6counter.'
+  - ''
+  - '&2Attack Multiplier: &6x{attr:skilld.value}'
+  - '&2Counter Duration: {attr:skille.duration}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Trigger-b: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: 'skille'
+            counts: 'True'
+            trigger: 'Took Physical Damage'
+            duration-base: '2'
+            duration-scale: '0.5'
+            stackable: 'True'
+            once: 'False'
+            type: 'Both'
+            target: 'True'
+            dmg-min: '0'
+            dmg-max: '999'
+            indicator: '2D'
+          children: 
+            Mana-c: 
+              type: 'condition'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                type: 'Mana'
+                min-value-base: '100'
+                min-value-scale: '0'
+                max-value-base: '100'
+                max-value-scale: '0'
+                indicator: '2D'
+              children: 
+                Mana-d: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'False'
+                    type: 'Mana'
+                    value-base: '-100'
+                    value-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+                Speed-e: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'False'
+                    multiplier-base: '1.4'
+                    multiplier-scale: '0'
+                    duration-base: '6'
+                    duration-scale: '0'
+                    indicator: '2D'
+                  children:  {}
+            Trigger-f: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                trigger: 'Physical Damage'
+                duration-base: '4'
+                duration-scale: '0'
+                stackable: 'True'
+                once: 'True'
+                type: 'Both'
+                target: 'True'
+                dmg-min: '0'
+                dmg-max: '999'
+                indicator: '2D'
+              children: 
+                Buff-g: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: 'skilld'
+                    counts: 'True'
+                    immediate: 'True'
+                    modifier: 'Multiplier'
+                    value-base: '2'
+                    value-scale: '0.5'
+                    indicator: '2D'
+                  children:  {}
+        Repeat-h: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            repetitions-base: '5'
+            repetitions-scale: '1'
+            period: '0.5'
+            delay: '0'
+            stop-on-fail: 'False'
+            indicator: '2D'
+          children: 
+            Sound-i: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                sound: 'Block Anvil Place'
+                volume-base: '80'
+                volume-scale: '0'
+                pitch-base: '1.6'
+                pitch-scale: '0'
+                indicator: '2D'
+              children:  {}
+        Defense Buff-j: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            type: 'Multiplier'
+            skill: 'False'
+            value-base: '0.05'
+            value-scale: '0'
+            seconds-base: '2'
+            seconds-scale: '0.5'
+            indicator: '2D'
+          children:  {}
+        Speed-k: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'False'
+            multiplier-base: '0.6'
+            multiplier-scale: '0'
+            duration-base: '2'
+            duration-scale: '0.5'
+            indicator: '2D'
+          children:  {}

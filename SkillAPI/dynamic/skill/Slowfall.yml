@@ -1,0 +1,94 @@
+Slowfall: 
+  name: 'Slowfall'
+  type: 'Utility, Survival'
+  max-level: 2
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    level-base: '5'
+    level-scale: '2'
+    cost-base: '1'
+    cost-scale: '0'
+    cooldown-base: '12'
+    cooldown-scale: '-2'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - ''
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'JACK_O_LANTERN'
+  icon-durability: 0
+  icon-data: 2
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eTemporarily reduces fall damage.'
+  - ''
+  - '&2Damage Multiplier: &6x{attr:skille.multiplier}'
+  - '&2Duration: {attr:skille.seconds}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Immunity-b: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: 'skille'
+            counts: 'True'
+            type: 'Fall'
+            seconds-base: '4'
+            seconds-scale: '0'
+            multiplier-base: '0.25'
+            multiplier-scale: '-0.15'
+            indicator: '2D'
+          children:  {}
+        Sound-c: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            sound: 'Entity Arrow Hit'
+            volume-base: '80'
+            volume-scale: '0'
+            pitch-base: '1.2'
+            pitch-scale: '0'
+            indicator: '2D'
+          children:  {}
+        Particle-d: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            particle: 'Cloud'
+            arrangement: 'Circle'
+            radius-base: '1'
+            radius-scale: '0'
+            particles-base: '4'
+            particles-scale: '0'
+            direction: 'XZ'
+            visible-radius: '25'
+            dx: '0'
+            dy: '0'
+            dz: '0'
+            speed: '1'
+            amount: '1'
+            forward: '0'
+            upward: '0'
+            right: '0'
+            indicator: '2D'
+          children:  {}
