@@ -10,16 +10,12 @@ stWarden:
   slots: 
     1: 
       vitality training: 0
-      traveller: 1
-      slowfall: 9
-      vigorous leap: 10
-      knockout punch: 18
-      counter: 19
-      critical strike: 27
-      blade technique: 3
+      survival trick: 1
+      knockout punch: 9
+      counter: 10
+      blade dance: 3
       blade combo: 12
-      blade rush: 21
-      sharpshooter: 5
-      arrow volley: 14
-      arrow rush: 23
-      rope dart: 7
+      blade rush: 11
+      slowfall: 5
+      leap: 14
+      escape: 13
