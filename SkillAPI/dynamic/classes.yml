@@ -1,52 +1,45 @@
-loaded: 'true'
-Warden: 
-  name: 'Warden'
-  action-bar: ''
-  prefix: '&bWarden'
+loaded: false
+Peasant:
+  name: 'Peasant'
+  prefix: '&bPeasant'
   group: 'class'
-  mana: '&2Focus'
+  mana: ''
   max-level: 20
   parent: ''
-  needs-permission: 'false'
-  attributes: 
-    health-base: '20'
-    health-scale: '0'
-    mana-base: '100'
-    mana-scale: '0'
-    vitality-base: '0'
-    vitality-scale: '0'
-    spirit-base: '0'
-    spirit-scale: '0'
-    intelligence-base: '0'
-    intelligence-scale: '0'
-    dexterity-base: '0'
-    dexterity-scale: '0'
-    strength-base: '0'
-    strength-scale: '0'
-  mana-regen: 5.0
-  tree: 'REQUIREMENT'
-  blacklist:  []
-  skills: 
+  needs-permission: 'False'
+  exp-source: 273
+  mana-regen: 0
+  tree: 'Requirement'
+  skills:
   - 'Vitality Training'
-  - 'Traveller'
-  - 'Slowfall'
-  - 'Vigorous Leap'
+  - 'Survival Trick'
   - 'Knockout Punch'
   - 'Counter'
-  - 'Critical Strike'
-  - 'Blade Technique'
+  - 'Blade Dance'
   - 'Blade Combo'
   - 'Blade Rush'
-  - 'Sharpshooter'
-  - 'Arrow Volley'
-  - 'Arrow Rush'
-  icon: 'IRON_SWORD'
-  icon-durability: 0
+  - 'Slowfall'
+  - 'Leap'
+  - 'Escape'
+  icon: 'Iron Sword'
   icon-data: 0
-  icon-lore: 
-  - '&eWardens are survivalists who'
-  - '&especialize in combat. Their skills'
-  - '&eprovide a simple combat experience.'
-  - '&6While their Focus is maxed, their'
-  - '&6next skill will be empowered.'
-  exp-source: 273
+  icon-lore:
+  - '&ePeasants are the lowest tier class.'
+  blacklist:
+  - ''
+  action-bar: ''
+  attributes:
+    health-base: 20
+    health-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    vitality-base: 0
+    vitality-scale: 0
+    spirit-base: 0
+    spirit-scale: 0
+    intelligence-base: 0
+    intelligence-scale: 0
+    dexterity-base: 0
+    dexterity-scale: 0
+    strength-base: 0
+    strength-scale: 0
