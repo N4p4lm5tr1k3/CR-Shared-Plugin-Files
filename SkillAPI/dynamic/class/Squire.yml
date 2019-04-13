@@ -1,0 +1,47 @@
+Squire:
+  name: 'Squire'
+  prefix: '&bSquire'
+  group: 'class'
+  mana: ''
+  max-level: 20
+  parent: ''
+  needs-permission: 'False'
+  exp-source: 273
+  mana-regen: 0
+  tree: 'Requirement'
+  skills:
+  - 'Vitality Training'
+  - 'Survival Trick'
+  - 'Knockout Punch'
+  - 'Counter'
+  - 'Blade Dance'
+  - 'Blade Combo'
+  - 'Blade Rush'
+  - 'Deadshot'
+  - 'Scattershot'
+  - 'Arrow Rain'
+  - 'Slowfall'
+  - 'Leap'
+  - 'Escape'
+  icon: 'Iron Sword'
+  icon-data: 0
+  icon-lore:
+  - '&eSquires are the lowest tier of classes.'
+  blacklist:
+  - ''
+  action-bar: ''
+  attributes:
+    health-base: 21
+    health-scale: 1
+    mana-base: 0
+    mana-scale: 0
+    vitality-base: 0
+    vitality-scale: 0
+    spirit-base: 0
+    spirit-scale: 0
+    intelligence-base: 0
+    intelligence-scale: 0
+    dexterity-base: 0
+    dexterity-scale: 0
+    strength-base: 0
+    strength-scale: 0
