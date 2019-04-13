@@ -3,8 +3,8 @@ CLASS_SELECTION:
   pages: 1
   slots: 
     1: 
-      warden: 0
-stWarden: 
+      squire: 0
+stSquire: 
   rows: 4
   pages: 1
   slots: 
@@ -13,9 +13,12 @@ stWarden:
       survival trick: 1
       knockout punch: 9
       counter: 10
-      blade dance: 3
-      blade combo: 12
-      blade rush: 11
-      slowfall: 5
-      leap: 14
-      escape: 13
+      blade dance: 2
+      blade combo: 11
+      blade rush: 20
+      deadshot: 3
+      scattershot: 12
+      arrow rain: 21
+      slowfall: 4
+      leap: 13
+      escape: 22
