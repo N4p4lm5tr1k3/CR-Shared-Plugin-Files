@@ -1,0 +1,155 @@
+Blade Dance:
+  name: 'Blade Dance'
+  type: 'Offensive'
+  max-level: 2
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Iron Sword'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eEmpowers your next melee attack for'
+  - '&e12 seconds.'
+  - '&6When empowered: hit a target to'
+  - '&eplace a mark and inflict slowness.'
+  - '&6(Restarts cooldown)'
+  - '&cMarked targets receive more damage.'
+  - ''
+  - '&2Damage: &6x{attr:skilld.value}'
+  - '&2Mark Duration: {attr:skille.seconds}'
+  - '&2Damage Multiplier: &6x{attr:skilld2.value}'
+  - '&2Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 1
+    level-scale: 2
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 10
+    cooldown-scale: -6
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Sound-b:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            sound: 'Entity Arrow Hit'
+            volume-base: 80
+            volume-scale: 0
+            pitch-base: 1.4
+            pitch-scale: 0
+        Particle-c:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            particle: 'Smoke'
+            arrangement: 'Circle'
+            radius-base: 1
+            radius-scale: 0
+            particles-base: 1
+            particles-scale: 0
+            direction: 'XZ'
+            data: 0
+            forward: 0
+            upward: 0
+            right: 0
+        Trigger-d:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            trigger: 'Physical Damage'
+            duration-base: 12
+            duration-scale: 0
+            stackable: 'True'
+            once: 'True'
+            type: 'Both'
+            target: 'False'
+            dmg-min: 0
+            dmg-max: 999
+          children:
+            Self-e:
+              type: 'target'
+              data:
+                icon-key: ''
+              children:
+                Cooldown-f:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'False'
+                    skill: 'Blade Dance'
+                    type: 'Percent'
+                    value-base: -100
+                    value-scale: 0
+                Cooldown-g:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'False'
+                    skill: 'Blade Dance'
+                    type: 'Seconds'
+                    value-base: 10
+                    value-scale: -6
+            Potion-h:
+              type: 'mechanic'
+              data:
+                icon-key: 'skille'
+                counts: 'False'
+                potion: 'Glowing'
+                ambient: 'False'
+                tier-base: 1
+                tier-scale: 0
+                seconds-base: 10
+                seconds-scale: 5
+            Defense Buff-i:
+              type: 'mechanic'
+              data:
+                icon-key: 'skilld2'
+                counts: 'False'
+                type: 'Multiplier'
+                skill: 'False'
+                value-base: 1.2
+                value-scale: 0
+                seconds-base: 10
+                seconds-scale: 5
+            Potion-j:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'False'
+                potion: 'Slow'
+                ambient: 'False'
+                tier-base: 1
+                tier-scale: 0
+                seconds-base: 10
+                seconds-scale: 5
+            Buff-k:
+              type: 'mechanic'
+              data:
+                icon-key: 'skilld'
+                counts: 'False'
+                immediate: 'True'
+                modifier: 'Multiplier'
+                value-base: 1.1
+                value-scale: 0.1

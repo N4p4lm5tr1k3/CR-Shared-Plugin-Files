@@ -1,0 +1,48 @@
+Survival Trick:
+  name: 'Survival Trick'
+  type: 'Defense'
+  max-level: 2
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Potion'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eClears all negative effects.'
+  - ''
+  - '&2Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 5
+    level-scale: 5
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 40
+    cooldown-scale: -25
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Cleanse-b:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            potion: 'All'
+            status: 'All'

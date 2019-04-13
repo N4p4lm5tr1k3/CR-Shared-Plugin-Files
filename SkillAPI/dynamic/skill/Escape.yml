@@ -1,0 +1,115 @@
+Escape:
+  name: 'Escape'
+  type: 'Mobility'
+  max-level: 1
+  skill-req: 'Leap'
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Feather'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&3Requires Leap.'
+  - '&eRoot nearby hostiles and jump back'
+  - '&eto safety.'
+  - ''
+  - '&2Toggle Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 15
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 16
+    cooldown-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Area-b:
+          type: 'target'
+          data:
+            icon-key: ''
+            radius-base: 8
+            radius-scale: 0
+            group: 'Enemy'
+            wall: 'True'
+            caster: 'False'
+            max-base: 99
+            max-scale: 0
+            random: 'False'
+          children:
+            Entity Type-c:
+              type: 'condition'
+              data:
+                icon-key: ''
+                types:
+                - 'Player'
+              children:
+                Status-d:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'True'
+                    status: 'Root'
+                    duration-base: 1
+                    duration-scale: 0
+                Else-e:
+                  type: 'condition'
+                  data:
+                    icon-key: ''
+                  children:
+                    Status-f:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'True'
+                        status: 'Root'
+                        duration-base: 4
+                        duration-scale: 0
+        Launch-g:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            relative: 'Target'
+            forward-base: -4
+            forward-scale: 0
+            upward-base: 3
+            upward-scale: 0
+            right-base: 0
+            right-scale: 0
+        Immunity-h:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            type: 'Fall'
+            seconds-base: 4
+            seconds-scale: 0
+            multiplier-base: 0
+            multiplier-scale: 0
+        Speed-i:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            multiplier-base: 1.2
+            multiplier-scale: 0
+            duration-base: 3
+            duration-scale: 0

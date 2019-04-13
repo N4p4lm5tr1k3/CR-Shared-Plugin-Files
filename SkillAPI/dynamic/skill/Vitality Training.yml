@@ -1,27 +1,16 @@
-Vitality Training: 
+Vitality Training:
   name: 'Vitality Training'
   type: 'Feat'
   max-level: 5
+  skill-req: ''
   skill-req-lvl: 1
-  needs-permission: 'false'
-  attributes: 
-    level-base: '1'
-    level-scale: '2'
-    cost-base: '1'
-    cost-scale: '0'
-    cooldown-base: '0'
-    cooldown-scale: '0'
-    mana-base: '0'
-    mana-scale: '0'
-    points-spent-req-base: '0'
-    points-spent-req-scale: '0'
-    incompatible: 
-    - ''
-  msg: '&6{player} &2has cast &6{skill}&r'
-  icon: 'JACK_O_LANTERN'
-  icon-durability: 0
-  icon-data: 2
-  icon-lore: 
+  needs-permission: 'False'
+  msg: ''
+  combo: ''
+  indicator: '2D'
+  icon: 'Rose Bush'
+  icon-data: 0
+  icon-lore:
   - '&d{name} &7({level}/{max})'
   - '&2Type: &6{type}'
   - ''
@@ -32,36 +21,41 @@ Vitality Training:
   - '&edamage you receive from attacks.'
   - ''
   - '&2Damage Multiplier: {attr:skille.value}'
-  desc:  []
-  components: 
-    Initialize: 
+  attributes:
+    level-base: 1
+    level-scale: 2
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 0
+    cooldown-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Initialize-a:
       type: 'trigger'
-      indicator: '3D'
-      data: 
+      data:
         icon-key: ''
-        indicator: '2D'
-      children: 
-        Passive-b: 
+      children:
+        Passive-b:
           type: 'mechanic'
-          indicator: '3D'
-          data: 
+          data:
             icon-key: ''
             counts: 'False'
-            seconds-base: '60'
-            seconds-scale: '0'
-            indicator: '2D'
-          children: 
-            Defense Buff-c: 
+            seconds-base: 60
+            seconds-scale: 0
+          children:
+            Defense Buff-c:
               type: 'mechanic'
-              indicator: '3D'
-              data: 
+              data:
                 icon-key: 'skille'
                 counts: 'False'
                 type: 'Multiplier'
                 skill: 'False'
-                value-base: '0.95'
-                value-scale: '-0.05'
-                seconds-base: '60'
-                seconds-scale: '0'
-                indicator: '2D'
-              children:  {}
+                value-base: 0.95
+                value-scale: -0.05
+                seconds-base: 60
+                seconds-scale: 0
