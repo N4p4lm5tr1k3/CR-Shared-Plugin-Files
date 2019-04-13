@@ -1,7 +1,7 @@
 loaded: false
-Peasant:
-  name: 'Peasant'
-  prefix: '&bPeasant'
+Squire:
+  name: 'Squire'
+  prefix: '&bSquire'
   group: 'class'
   mana: ''
   max-level: 20
@@ -18,19 +18,22 @@ Peasant:
   - 'Blade Dance'
   - 'Blade Combo'
   - 'Blade Rush'
+  - 'Deadshot'
+  - 'Scattershot'
+  - 'Arrow Rain'
   - 'Slowfall'
   - 'Leap'
   - 'Escape'
   icon: 'Iron Sword'
   icon-data: 0
   icon-lore:
-  - '&ePeasants are the lowest tier class.'
+  - '&eSquires are the lowest tier of classes.'
   blacklist:
   - ''
   action-bar: ''
   attributes:
-    health-base: 20
-    health-scale: 0
+    health-base: 21
+    health-scale: 1
     mana-base: 0
     mana-scale: 0
     vitality-base: 0
