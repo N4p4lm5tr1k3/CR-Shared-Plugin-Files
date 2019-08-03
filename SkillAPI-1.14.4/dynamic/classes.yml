@@ -1,1 +1,83 @@
-loaded: 'true'
+loaded: false
+Sun:
+  name: 'Sun'
+  prefix: '&eSun'
+  group: 'domain'
+  mana: ''
+  max-level: 5
+  parent: ''
+  needs-permission: 'False'
+  exp-source: 273
+  mana-regen: 1
+  tree: 'Requirement'
+  skills:
+  - 'Scholar of Radiance'
+  - 'Inspire'
+  - 'Daydreamer'
+  - 'Traveller'
+  - 'Turn Undead'
+  icon: 'Beacon'
+  icon-data: 0
+  icon-lore:
+  - '&dPlayers dedicated to the Sun domain'
+  - '&dgain the benefits needed to ward off'
+  - '&dnight creatures.'
+  blacklist:
+  - ''
+  action-bar: ''
+  attributes:
+    health-base: 20
+    health-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    vitality-base: 0
+    vitality-scale: 0
+    spirit-base: 0
+    spirit-scale: 0
+    intelligence-base: 0
+    intelligence-scale: 0
+    dexterity-base: 0
+    dexterity-scale: 0
+    strength-base: 0
+    strength-scale: 0
+Cave:
+  name: 'Cave'
+  prefix: '&7Cave'
+  group: 'domain'
+  mana: ''
+  max-level: 5
+  parent: ''
+  needs-permission: 'False'
+  exp-source: 273
+  mana-regen: 1
+  tree: 'Requirement'
+  skills:
+  - 'Undervision'
+  - 'Shell of Protection'
+  - 'Cave Dweller'
+  - 'Blindsight'
+  - 'Dedication'
+  icon: 'Iron Pickaxe'
+  icon-data: 0
+  icon-lore:
+  - '&dPlayers dedicated to the Cave domain'
+  - '&dwill find it easier than usual living'
+  - '&dunderground.'
+  blacklist:
+  - ''
+  action-bar: ''
+  attributes:
+    health-base: 20
+    health-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    vitality-base: 0
+    vitality-scale: 0
+    spirit-base: 0
+    spirit-scale: 0
+    intelligence-base: 0
+    intelligence-scale: 0
+    dexterity-base: 0
+    dexterity-scale: 0
+    strength-base: 0
+    strength-scale: 0

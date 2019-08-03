@@ -1,1 +1,790 @@
-loaded: 'true'
+loaded: false
+Blindsight:
+  name: 'Blindsight'
+  type: 'Passive'
+  max-level: 1
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: ''
+  combo: ''
+  indicator: '2D'
+  icon: 'Nether Star'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&ePeriodically mark nearby non-allied'
+  - '&ecreatures while at y60 or below.'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 0
+    cooldown-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Initialize-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Passive-b:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            seconds-base: 6
+            seconds-scale: 0
+          children:
+            Water-c:
+              type: 'condition'
+              data:
+                icon-key: ''
+                state: 'Out Of Water'
+              children:
+                Elevation-d:
+                  type: 'condition'
+                  data:
+                    icon-key: ''
+                    type: 'Normal'
+                    min-value-base: 0
+                    min-value-scale: 0
+                    max-value-base: 60
+                    max-value-scale: 0
+                  children:
+                    Area-e:
+                      type: 'target'
+                      data:
+                        icon-key: ''
+                        radius-base: 16
+                        radius-scale: 0
+                        group: 'Enemy'
+                        wall: 'True'
+                        caster: 'False'
+                        max-base: 99
+                        max-scale: 0
+                        random: 'False'
+                      children:
+                        Potion-f:
+                          type: 'mechanic'
+                          data:
+                            icon-key: ''
+                            counts: 'False'
+                            potion: 'Glowing'
+                            ambient: 'False'
+                            tier-base: 1
+                            tier-scale: 0
+                            seconds-base: 6
+                            seconds-scale: 0
+Cave Dweller:
+  name: 'Cave Dweller'
+  type: 'Passive'
+  max-level: 1
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: ''
+  combo: ''
+  indicator: '2D'
+  icon: 'Iron Bars'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&cCast to toggle on/off.'
+  - '&eGain jump boost and speed while'
+  - '&eat y60 or below.'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 0
+    cooldown-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Flag Toggle-b:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            key: 'caveDwellerFlag'
+        Message-c:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            message: 'Skill toggled!'
+    Initialize-d:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Passive-e:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            seconds-base: 2
+            seconds-scale: 0
+          children:
+            Flag-f:
+              type: 'condition'
+              data:
+                icon-key: ''
+                type: 'Not Set'
+                key: 'caveDwellerFlag'
+              children:
+                Water-g:
+                  type: 'condition'
+                  data:
+                    icon-key: ''
+                    state: 'Out Of Water'
+                  children:
+                    Elevation-h:
+                      type: 'condition'
+                      data:
+                        icon-key: ''
+                        type: 'Normal'
+                        min-value-base: 0
+                        min-value-scale: 0
+                        max-value-base: 60
+                        max-value-scale: 0
+                      children:
+                        Speed-i:
+                          type: 'mechanic'
+                          data:
+                            icon-key: ''
+                            counts: 'False'
+                            multiplier-base: 1.4
+                            multiplier-scale: 0
+                            duration-base: 2
+                            duration-scale: 0
+                        Potion-j:
+                          type: 'mechanic'
+                          data:
+                            icon-key: ''
+                            counts: 'False'
+                            potion: 'Jump'
+                            ambient: 'False'
+                            tier-base: 2
+                            tier-scale: 0
+                            seconds-base: 3
+                            seconds-scale: 0
+Daydreamer:
+  name: 'Daydreamer'
+  type: 'Passive'
+  max-level: 1
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: ''
+  combo: ''
+  indicator: '2D'
+  icon: 'Nether Star'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eRegenerate health while in bright'
+  - '&elight.'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 0
+    cooldown-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Initialize-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Passive-b:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            seconds-base: 2
+            seconds-scale: 0
+          children:
+            Light-c:
+              type: 'condition'
+              data:
+                icon-key: ''
+                min-light-base: 8
+                min-light-scale: 0
+                max-light-base: 16
+                max-light-scale: 0
+              children:
+                Heal-d:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'False'
+                    type: 'Health'
+                    value-base: 0.5
+                    value-scale: 0
+Dedication:
+  name: 'Dedication'
+  type: 'Passive'
+  max-level: 1
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: ''
+  combo: ''
+  indicator: '2D'
+  icon: 'Golden Pickaxe'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&ePermanently gain Haste II'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 0
+    cooldown-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Initialize-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Passive-b:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            seconds-base: 10
+            seconds-scale: 0
+          children:
+            Potion-c:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'False'
+                potion: 'Fast Digging'
+                ambient: 'False'
+                tier-base: 2
+                tier-scale: 0
+                seconds-base: 15
+                seconds-scale: 0
+Inspire:
+  name: 'Inspire'
+  type: 'Aoe, Buff'
+  max-level: 2
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Torch'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eInspire you and nearby players to'
+  - '&ereceive less incoming damage, deal'
+  - '&emore damage and recover health faster.'
+  - ''
+  - '&2Radius: &e{attr:skille.radius}'
+  - '&2Duration: &e{attr:skillp.seconds}'
+  - '&2Cooldown: &e{attr:cooldown}'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 300
+    cooldown-scale: -120
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Area-b:
+          type: 'target'
+          data:
+            icon-key: 'skille'
+            radius-base: 16
+            radius-scale: 0
+            group: 'Ally'
+            wall: 'True'
+            caster: 'True'
+            max-base: 99
+            max-scale: 0
+            random: 'False'
+          children:
+            Potion-c:
+              type: 'mechanic'
+              data:
+                icon-key: 'skillp'
+                counts: 'False'
+                potion: 'Damage Resistance'
+                ambient: 'False'
+                tier-base: 1
+                tier-scale: 0
+                seconds-base: 60
+                seconds-scale: 30
+            Potion-d:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'False'
+                potion: 'Increase Damage'
+                ambient: 'False'
+                tier-base: 2
+                tier-scale: 0
+                seconds-base: 60
+                seconds-scale: 30
+            Potion-e:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'False'
+                potion: 'Regeneration'
+                ambient: 'False'
+                tier-base: 2
+                tier-scale: 0
+                seconds-base: 60
+                seconds-scale: 30
+Scholar of Radiance:
+  name: 'Scholar of Radiance'
+  type: 'Passive'
+  max-level: 1
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: ''
+  combo: ''
+  indicator: '2D'
+  icon: 'Book'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '&eBeginning at 1st level, you take'
+  - '&e20% less damage from attacks'
+  - "&ewhenever you're in bright light."
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 0
+    cost-scale: 0
+    cooldown-base: 0
+    cooldown-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Initialize-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Passive-b:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            seconds-base: 2
+            seconds-scale: 0
+          children:
+            Light-c:
+              type: 'condition'
+              data:
+                icon-key: ''
+                min-light-base: 8
+                min-light-scale: 0
+                max-light-base: 16
+                max-light-scale: 
+              children:
+                Buff-d:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'False'
+                    immediate: 'False'
+                    type: 'DEFENSE'
+                    modifier: 'Multiplier'
+                    value-base: 0.8
+                    value-scale: 0
+                    seconds-base: 2
+                    seconds-scale: 0
+Shell of Protection:
+  name: 'Shell of Protection'
+  type: 'Defense'
+  max-level: 2
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Iron Chestplate'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eGrant yourself a strong health'
+  - '&ebarrier.'
+  - ''
+  - '&2Duration: &e{attr.skille.seconds}'
+  - '&2Cooldown: &e{attr:cooldown}'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 120
+    cooldown-scale: -30
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Potion-b:
+          type: 'mechanic'
+          data:
+            icon-key: 'skille'
+            counts: 'True'
+            potion: 'Health Boost'
+            ambient: 'False'
+            tier-base: 3
+            tier-scale: 2
+            seconds-base: 12
+            seconds-scale: 8
+Traveller:
+  name: 'Traveller'
+  type: 'Passive'
+  max-level: 1
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: ''
+  combo: ''
+  indicator: '2D'
+  icon: 'Leather Boots'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&cCast to toggle on/off.'
+  - '&eMove 20% faster while in bright'
+  - '&elight.'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 0
+    cooldown-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Flag Toggle-b:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            key: 'travellerFlag'
+        Message-c:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            message: 'Skill toggled!'
+    Initialize-d:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Passive-e:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            seconds-base: 2
+            seconds-scale: 0
+          children:
+            Flag-f:
+              type: 'condition'
+              data:
+                icon-key: ''
+                type: 'Not Set'
+                key: 'travellerFlag'
+              children:
+                Light-g:
+                  type: 'condition'
+                  data:
+                    icon-key: ''
+                    min-light-base: 8
+                    min-light-scale: 0
+                    max-light-base: 16
+                    max-light-scale: 0
+                  children:
+                    Speed-h:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        multiplier-base: 1.2
+                        multiplier-scale: 0
+                        duration-base: 2
+                        duration-scale: 0
+Turn Undead:
+  name: 'Turn Undead'
+  type: 'Passive'
+  max-level: 1
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: ''
+  combo: ''
+  indicator: '2D'
+  icon: 'Iron Sword'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eSlow nearby undead mobs.'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 0
+    cooldown-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Initialize-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Passive-b:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            seconds-base: 2
+            seconds-scale: 0
+          children:
+            Area-c:
+              type: 'target'
+              data:
+                icon-key: ''
+                radius-base: 16
+                radius-scale: 0
+                group: 'Enemy'
+                wall: 'True'
+                caster: 'False'
+                max-base: 99
+                max-scale: 0
+                random: 'False'
+              children:
+                Entity Type-d:
+                  type: 'condition'
+                  data:
+                    icon-key: ''
+                    types:
+                    - 'Skeleton'
+                    - 'Stray'
+                    - 'Wither Skeleton'
+                    - 'Wither'
+                    - 'Zombie'
+                    - 'Husk'
+                    - 'Zombie Villager'
+                    - 'Pig Zombie'
+                    - 'Drowned'
+                    - 'Zombie Horse'
+                    - 'Skeleton Horse'
+                    - 'Phantom'
+                  children:
+                    Potion-e:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        potion: 'Slow'
+                        ambient: 'True'
+                        tier-base: 2
+                        tier-scale: 0
+                        seconds-base: 3
+                        seconds-scale: 1
+Undervision:
+  name: 'Undervision'
+  type: 'Passive'
+  max-level: 1
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: ''
+  combo: ''
+  indicator: '2D'
+  icon: 'Iron Ore'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eBeginning at 1st level, you gain'
+  - '&enight vision while at y60 or below.'
+  - "&eUnderground traits won't activate"
+  - '&ewhile submerged in water.'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 0
+    cost-scale: 0
+    cooldown-base: 0
+    cooldown-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Initialize-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Passive-b:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            seconds-base: 2
+            seconds-scale: 0
+          children:
+            Water-c:
+              type: 'condition'
+              data:
+                icon-key: ''
+                state: 'Out Of Water'
+              children:
+                Elevation-d:
+                  type: 'condition'
+                  data:
+                    icon-key: ''
+                    type: 'Normal'
+                    min-value-base: 0
+                    min-value-scale: 0
+                    max-value-base: 60
+                    max-value-scale: 0
+                  children:
+                    Potion-e:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        potion: 'Night Vision'
+                        ambient: 'False'
+                        tier-base: 1
+                        tier-scale: 0
+                        seconds-base: 3
+                        seconds-scale: 0
