@@ -1,27 +1,16 @@
-Counter: 
+Counter:
   name: 'Counter'
   type: 'Defensive'
-  max-level: 3
+  max-level: 2
+  skill-req: ''
   skill-req-lvl: 1
-  needs-permission: 'false'
-  attributes: 
-    level-base: '1'
-    level-scale: '2'
-    cost-base: '1'
-    cost-scale: '0'
-    cooldown-base: '12'
-    cooldown-scale: '-0.5'
-    mana-base: '0'
-    mana-scale: '0'
-    points-spent-req-base: '0'
-    points-spent-req-scale: '0'
-    incompatible: 
-    - ''
+  needs-permission: 'False'
   msg: '&6{player} &2has cast &6{skill}'
-  icon: 'FEATHER'
-  icon-durability: 0
+  combo: ''
+  indicator: '2D'
+  icon: 'Iron Hoe'
   icon-data: 0
-  icon-lore: 
+  icon-lore:
   - '&d{name} &7({level}/{max})'
   - '&2Type: &6{type}'
   - ''
@@ -29,156 +18,134 @@ Counter:
   - '{req:cost}Cost: {attr:cost}'
   - ''
   - '&eEnter a defensive stance. Taking'
-  - '&edamage while in this stance'
-  - '&emakes your next melee attack'
-  - '&ewithin 4 seconds deal bonus'
-  - '&edamage.'
-  - '&6When empowered: Gain a bonus '
-  - '&6to speed after a successful'
-  - '&6counter.'
+  - '&edamage while in this stance empowers'
+  - '&eyour next attack for 8 seconds.'
+  - '&6When empowered: hit a target to deal'
+  - '&6bonus damage. (Restarts cooldown)'
   - ''
-  - '&2Attack Multiplier: &6x{attr:skilld.value}'
+  - '&2Attack Multiplier: {attr:skilld.value}'
   - '&2Counter Duration: {attr:skille.duration}'
   - '&2Cooldown: {attr:cooldown}'
-  desc:  []
-  components: 
-    Cast: 
+  attributes:
+    level-base: 5
+    level-scale: 5
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 12
+    cooldown-scale: -2
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
       type: 'trigger'
-      indicator: '3D'
-      data: 
+      data:
         icon-key: ''
-        indicator: '2D'
-      children: 
-        Trigger-b: 
+      children:
+        Speed-b:
           type: 'mechanic'
-          indicator: '3D'
-          data: 
+          data:
             icon-key: 'skille'
             counts: 'True'
-            trigger: 'Took Physical Damage'
-            duration-base: '2'
-            duration-scale: '0.5'
-            stackable: 'True'
-            once: 'False'
-            type: 'Both'
-            target: 'True'
-            dmg-min: '0'
-            dmg-max: '999'
-            indicator: '2D'
-          children: 
-            Mana-c: 
-              type: 'condition'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                type: 'Mana'
-                min-value-base: '100'
-                min-value-scale: '0'
-                max-value-base: '100'
-                max-value-scale: '0'
-                indicator: '2D'
-              children: 
-                Mana-d: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'False'
-                    type: 'Mana'
-                    value-base: '-100'
-                    value-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-                Speed-e: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: ''
-                    counts: 'False'
-                    multiplier-base: '1.4'
-                    multiplier-scale: '0'
-                    duration-base: '6'
-                    duration-scale: '0'
-                    indicator: '2D'
-                  children:  {}
-            Trigger-f: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                trigger: 'Physical Damage'
-                duration-base: '4'
-                duration-scale: '0'
-                stackable: 'True'
-                once: 'True'
-                type: 'Both'
-                target: 'True'
-                dmg-min: '0'
-                dmg-max: '999'
-                indicator: '2D'
-              children: 
-                Buff-g: 
-                  type: 'mechanic'
-                  indicator: '3D'
-                  data: 
-                    icon-key: 'skilld'
-                    counts: 'True'
-                    immediate: 'True'
-                    modifier: 'Multiplier'
-                    value-base: '2'
-                    value-scale: '0.5'
-                    indicator: '2D'
-                  children:  {}
-        Repeat-h: 
+            multiplier-base: 0.2
+            multiplier-scale: 0
+            duration-base: 2
+            duration-scale: 1
+        Defense Buff-c:
           type: 'mechanic'
-          indicator: '3D'
-          data: 
-            icon-key: ''
-            counts: 'True'
-            repetitions-base: '5'
-            repetitions-scale: '1'
-            period: '0.5'
-            delay: '0'
-            stop-on-fail: 'False'
-            indicator: '2D'
-          children: 
-            Sound-i: 
-              type: 'mechanic'
-              indicator: '3D'
-              data: 
-                icon-key: ''
-                counts: 'True'
-                sound: 'Block Anvil Place'
-                volume-base: '80'
-                volume-scale: '0'
-                pitch-base: '1.6'
-                pitch-scale: '0'
-                indicator: '2D'
-              children:  {}
-        Defense Buff-j: 
-          type: 'mechanic'
-          indicator: '3D'
-          data: 
+          data:
             icon-key: ''
             counts: 'True'
             type: 'Multiplier'
             skill: 'False'
-            value-base: '0.05'
-            value-scale: '0'
-            seconds-base: '2'
-            seconds-scale: '0.5'
-            indicator: '2D'
-          children:  {}
-        Speed-k: 
+            value-base: 0.05
+            value-scale: 0
+            seconds-base: 2
+            seconds-scale: 1
+        Trigger-d:
           type: 'mechanic'
-          indicator: '3D'
-          data: 
+          data:
+            icon-key: ''
+            counts: 'True'
+            trigger: 'Took Physical Damage'
+            duration-base: 2
+            duration-scale: 1
+            stackable: 'True'
+            once: 'True'
+            type: 'Both'
+            target: 'True'
+            dmg-min: 0
+            dmg-max: 999
+          children:
+            Buff-e:
+              type: 'mechanic'
+              data:
+                icon-key: 'skilld'
+                counts: 'False'
+                immediate: 'True'
+                modifier: 'Multiplier'
+                value-base: 2
+                value-scale: 1
+            Cooldown-f:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'False'
+                skill: 'Counter'
+                type: 'Percent'
+                value-base: -100
+                value-scale: 0
+            Cooldown-g:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'False'
+                skill: 'Counter'
+                type: 'Seconds'
+                value-base: 12
+                value-scale: -2
+        Repeat-h:
+          type: 'mechanic'
+          data:
             icon-key: ''
             counts: 'False'
-            multiplier-base: '0.6'
-            multiplier-scale: '0'
-            duration-base: '2'
-            duration-scale: '0.5'
-            indicator: '2D'
-          children:  {}
+            repetitions-base: 5
+            repetitions-scale: 2
+            period: 0.5
+            delay: 0
+            stop-on-fail: 'True'
+          children:
+            Sound-i:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'False'
+                sound: 'Block Anvil Place'
+                volume-base: 80
+                volume-scale: 0
+                pitch-base: 1.4
+                pitch-scale: 0
+        Particle-j:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            particle: 'Angry Villager'
+            arrangement: 'Circle'
+            radius-base: 1
+            radius-scale: 0
+            particles-base: 1
+            particles-scale: 0
+            direction: 'XZ'
+            visible-radius: 25
+            dx: 0
+            dy: 0
+            dz: 0
+            speed: 1
+            amount: 1
+            forward: 0
+            upward: 0
+            right: 0

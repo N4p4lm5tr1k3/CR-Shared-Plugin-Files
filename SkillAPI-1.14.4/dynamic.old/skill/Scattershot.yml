@@ -1,0 +1,141 @@
+Scattershot:
+  name: 'Scattershot'
+  type: 'Ranged AoE, Offensive'
+  max-level: 2
+  skill-req: 'Deadshot'
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Bow'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&3Requires Scattershot.'
+  - '&eMakes your next arrow a Scattershot'
+  - '&eArrow for 12 seconds.'
+  - '&6Scattershot Arrow deals AoE damage.'
+  - '&6(Restarts cooldown)'
+  - ''
+  - '&2AoE Radius: {attr:skille.radius}'
+  - '&2Damage Multiplier: &6x{attr:skilld.value}'
+  - '&2Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 5
+    level-scale: 2
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 16
+    cooldown-scale: -4
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Sound-b:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            sound: 'Entity Arrow Hit'
+            volume-base: 80
+            volume-scale: 0
+            pitch-base: 1.4
+            pitch-scale: 0
+        Particle-c:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            particle: 'Smoke'
+            arrangement: 'Circle'
+            radius-base: 1
+            radius-scale: 0
+            particles-base: 1
+            particles-scale: 0
+            direction: 'XZ'
+            data: 0
+            forward: 0
+            upward: 0
+            right: 0
+        Trigger-d:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            trigger: 'Physical Damage'
+            duration-base: 12
+            duration-scale: 0
+            stackable: 'True'
+            once: 'True'
+            type: 'Projectile'
+            target: 'False'
+            dmg-min: 0
+            dmg-max: 999
+          children:
+            Delay-e:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                delay-base: 0.3
+                delay-scale: 0
+              children:
+                Area-f:
+                  type: 'target'
+                  data:
+                    icon-key: 'skille'
+                    radius-base: 3
+                    radius-scale: 1
+                    group: 'Enemy'
+                    wall: 'True'
+                    caster: 'False'
+                    max-base: 99
+                    max-scale: 0
+                    random: 'False'
+                  children:
+                    Buff-g:
+                      type: 'mechanic'
+                      data:
+                        icon-key: 'skilld'
+                        counts: 'True'
+                        immediate: 'True'
+                        modifier: 'Multiplier'
+                        value-base: 0.6
+                        value-scale: 0.4
+            Self-h:
+              type: 'target'
+              data:
+                icon-key: ''
+              children:
+                Cooldown-i:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'False'
+                    skill: 'Scattershot'
+                    type: 'Percent'
+                    value-base: -100
+                    value-scale: 0
+                Cooldown-j:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'False'
+                    skill: 'Scattershot'
+                    type: 'Seconds'
+                    value-base: 16
+                    value-scale: -4

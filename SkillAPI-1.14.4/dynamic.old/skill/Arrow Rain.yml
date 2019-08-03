@@ -1,0 +1,158 @@
+Arrow Rain:
+  name: 'Arrow Rain'
+  type: 'Ranged AoE, Offensive'
+  max-level: 1
+  skill-req: 'Scattershot'
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Bow'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&3Requires Scattershot.'
+  - '&eMakes your next arrow within 12'
+  - '&eseconds call down a rain of'
+  - "&earrows at the target's location."
+  - '&e(Restarts cooldown). Deals damage'
+  - '&eover 6 seconds.'
+  - ''
+  - '&2AoE Radius: &66'
+  - '&2AoE Damage/2 sec: &6x1.2'
+  - '&2Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 10
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 24
+    cooldown-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Sound-b:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            sound: 'Entity Arrow Hit'
+            volume-base: 80
+            volume-scale: 0
+            pitch-base: 1.4
+            pitch-scale: 0
+        Particle-c:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            particle: 'Smoke'
+            arrangement: 'Circle'
+            radius-base: 1
+            radius-scale: 0
+            particles-base: 1
+            particles-scale: 0
+            direction: 'XZ'
+            data: 0
+            forward: 0
+            upward: 0
+            right: 0
+        Trigger-d:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            trigger: 'Physical Damage'
+            duration-base: 12
+            duration-scale: 0
+            stackable: 'True'
+            once: 'True'
+            type: 'Projectile'
+            target: 'False'
+            dmg-min: 0
+            dmg-max: 999
+          children:
+            Repeat-e:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                repetitions-base: 3
+                repetitions-scale: 0
+                period: 2
+                delay: 2
+                stop-on-fail: 'False'
+              children:
+                Projectile-f:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'True'
+                    projectile: 'Arrow'
+                    flaming: 'False'
+                    cost: ''
+                    group: 'Enemy'
+                    spread: 'Rain'
+                    amount-base: 12
+                    amount-scale: 0
+                    velocity-base: 3
+                    velocity-scale: 0
+                    height-base: 8
+                    height-scale: 0
+                    rain-radius-base: 6
+                    rain-radius-scale: 0
+                    forward-base: 0
+                    forward-scale: 0
+                    upward-base: 0
+                    upward-scale: 0
+                    right-base: 0
+                    right-scale: 0
+                    use-effect: 'False'
+                  children:
+                    Buff-g:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'True'
+                        immediate: 'True'
+                        modifier: 'Multiplier'
+                        value-base: 1.2
+                        value-scale: 0
+            Self-h:
+              type: 'target'
+              data:
+                icon-key: ''
+              children:
+                Cooldown-i:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'False'
+                    skill: 'Arrow Rain'
+                    type: 'Percent'
+                    value-base: -100
+                    value-scale: 0
+                Cooldown-j:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'False'
+                    skill: 'Arrow Rain'
+                    type: 'Seconds'
+                    value-base: 24
+                    value-scale: 0
