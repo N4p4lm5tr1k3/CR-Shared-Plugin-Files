@@ -1,0 +1,226 @@
+Knockout Punch: 
+  name: 'Knockout Punch'
+  type: 'Defensive'
+  max-level: 2
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    level-base: '1'
+    level-scale: '2'
+    cost-base: '1'
+    cost-scale: '0'
+    cooldown-base: '16'
+    cooldown-scale: '-6'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - ''
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'QUARTZ'
+  icon-durability: 0
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eWeakens and pushes a targeted'
+  - '&ehostile away from you.'
+  - '&6When empowered: Immobilizes'
+  - '&6the target.'
+  - ''
+  - '&2Damage: {attr:skilld.value}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Single-b: 
+          type: 'target'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            range-base: '5'
+            range-scale: '0'
+            tolerance-base: '4'
+            tolerance-scale: '0'
+            group: 'Enemy'
+            wall: 'False'
+            indicator: '2D'
+            caster: 'false'
+          children: 
+            Self-c: 
+              type: 'target'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                indicator: '2D'
+                group: 'enemy'
+                wall: 'false'
+                caster: 'false'
+              children: 
+                Mana-d: 
+                  type: 'condition'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    type: 'Mana'
+                    min-value-base: '100'
+                    min-value-scale: '0'
+                    max-value-base: '100'
+                    max-value-scale: '0'
+                    indicator: '2D'
+                  children: 
+                    Remember-e: 
+                      type: 'target'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        key: 'target'
+                        indicator: '2D'
+                        group: 'enemy'
+                        wall: 'false'
+                        caster: 'false'
+                      children: 
+                        Entity Type-f: 
+                          type: 'condition'
+                          indicator: '3D'
+                          data: 
+                            icon-key: ''
+                            types: 
+                            - 'Player'
+                            indicator: '2D'
+                          children: 
+                            Else-g: 
+                              type: 'condition'
+                              indicator: '3D'
+                              data: 
+                                icon-key: ''
+                                indicator: '2D'
+                              children: 
+                                Status-h: 
+                                  type: 'mechanic'
+                                  indicator: '3D'
+                                  data: 
+                                    icon-key: 'skillslow'
+                                    counts: 'True'
+                                    status: 'Root'
+                                    duration-base: '6'
+                                    duration-scale: '3'
+                                    indicator: '2D'
+                                  children:  {}
+                            Status-i: 
+                              type: 'mechanic'
+                              indicator: '3D'
+                              data: 
+                                icon-key: ''
+                                counts: 'True'
+                                status: 'Root'
+                                duration-base: '1.5'
+                                duration-scale: '0.75'
+                                indicator: '2D'
+                              children:  {}
+                    Mana-j: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        type: 'Mana'
+                        value-base: '-100'
+                        value-scale: '0'
+                        indicator: '2D'
+                      children:  {}
+            Damage-k: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: 'skilld'
+                counts: 'True'
+                type: 'Damage'
+                value-base: '6'
+                value-scale: '4'
+                true: 'False'
+                classifier: 'default'
+                indicator: '2D'
+              children:  {}
+            Launch-l: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: 'skillk'
+                counts: 'True'
+                relative: 'Between'
+                forward-base: '3'
+                forward-scale: '2'
+                upward-base: '0'
+                upward-scale: '0'
+                right-base: '0'
+                right-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Potion-m: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: 'skillslow'
+                counts: 'True'
+                potion: 'Slow'
+                ambient: 'True'
+                tier-base: '3'
+                tier-scale: '0'
+                seconds-base: '6'
+                seconds-scale: '2'
+                indicator: '2D'
+              children:  {}
+            Potion-n: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                potion: 'Weakness'
+                ambient: 'True'
+                tier-base: '3'
+                tier-scale: '0'
+                seconds-base: '6'
+                seconds-scale: '2'
+                indicator: '2D'
+              children:  {}
+            Remember Targets-o: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'False'
+                key: 'target'
+                indicator: '2D'
+              children:  {}
+        Delay-p: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            delay-base: '0.1'
+            delay-scale: '0'
+            indicator: '2D'
+          children: 
+            Forget Targets-q: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'target'
+                indicator: '2D'
+              children:  {}

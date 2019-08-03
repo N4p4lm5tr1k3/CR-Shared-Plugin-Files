@@ -1,0 +1,268 @@
+Rope Dart: 
+  name: 'Rope Dart'
+  type: 'Offensive, Mobility'
+  max-level: 3
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    level-base: '1'
+    level-scale: '0'
+    cost-base: '1'
+    cost-scale: '0'
+    cooldown-base: '12'
+    cooldown-scale: '-2'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - ''
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'TRIPWIRE_HOOK'
+  icon-durability: 0
+  icon-data: 2
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eBinds the target to you.'
+  - '&eCrouching while bound pulls both '
+  - '&eyou and the target closer. Cast on'
+  - '&eground for this skill to act as a '
+  - '&egrappling hook.'
+  - '&6When empowered: Grants a short'
+  - '&6health barrier.'
+  - ''
+  - '&2Bind Duration: {attr:skille.duration}'
+  - '&2Damage: {attr:skilld.value}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Sound-b: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            sound: 'Entity Arrow Shoot'
+            volume-base: '80'
+            volume-scale: '0'
+            pitch-base: '1.2'
+            pitch-scale: '0'
+            indicator: '2D'
+          children:  {}
+        Forget Targets-c: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            key: 'roped'
+            indicator: '2D'
+          children:  {}
+        Particle Projectile-d: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            group: 'Enemy'
+            spread: 'Cone'
+            amount-base: '1'
+            amount-scale: '0'
+            velocity-base: '4'
+            velocity-scale: '0'
+            angle-base: '30'
+            angle-scale: '0'
+            position: '0'
+            forward-base: '0'
+            forward-scale: '0'
+            upward-base: '0'
+            upward-scale: '0'
+            right-base: '0'
+            right-scale: '0'
+            gravity: '0'
+            pierce: 'False'
+            particle: 'Cloud'
+            arrangement: 'Circle'
+            radius-base: '1'
+            radius-scale: '0'
+            particles-base: '1'
+            particles-scale: '0'
+            direction: 'XZ'
+            visible-radius: '25'
+            dx: '0'
+            dy: '0'
+            dz: '0'
+            speed: '1'
+            amount: '1'
+            frequency: '0.05'
+            lifespan: '1'
+            use-effect: 'False'
+            indicator: '2D'
+          children: 
+            Repeat-e: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                repetitions-base: '5'
+                repetitions-scale: '1'
+                period: '1'
+                delay: '0'
+                stop-on-fail: 'False'
+                indicator: '2D'
+              children: 
+                Particle-f: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: ''
+                    counts: 'True'
+                    particle: 'Flame'
+                    arrangement: 'Circle'
+                    radius-base: '1'
+                    radius-scale: '0'
+                    particles-base: '1'
+                    particles-scale: '0'
+                    direction: 'XZ'
+                    visible-radius: '25'
+                    dx: '0'
+                    dy: '0'
+                    dz: '0'
+                    speed: '1'
+                    amount: '1'
+                    forward: '0'
+                    upward: '1'
+                    right: '0'
+                    indicator: '2D'
+                  children:  {}
+            Damage-g: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                type: 'Damage'
+                value-base: '4'
+                value-scale: '1'
+                true: 'False'
+                classifier: 'default'
+                indicator: '2D'
+              children:  {}
+            Remember Targets-h: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                key: 'roped'
+                indicator: '2D'
+              children:  {}
+            Self-i: 
+              type: 'target'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                indicator: '2D'
+                group: 'enemy'
+                wall: 'false'
+                caster: 'false'
+              children: 
+                Trigger-j: 
+                  type: 'mechanic'
+                  indicator: '3D'
+                  data: 
+                    icon-key: 'skille'
+                    counts: 'True'
+                    trigger: 'Crouch'
+                    duration-base: '4'
+                    duration-scale: '1'
+                    stackable: 'True'
+                    once: 'True'
+                    type: 'Start Crouching'
+                    indicator: '2D'
+                  children: 
+                    Remember-k: 
+                      type: 'target'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        key: 'roped'
+                        indicator: '2D'
+                        group: 'enemy'
+                        wall: 'false'
+                        caster: 'false'
+                      children: 
+                        Push-l: 
+                          type: 'mechanic'
+                          indicator: '3D'
+                          data: 
+                            icon-key: ''
+                            counts: 'True'
+                            type: 'Fixed'
+                            speed-base: '-2'
+                            speed-scale: '0'
+                            source: 'none'
+                            indicator: '2D'
+                          children:  {}
+                    Push-m: 
+                      type: 'mechanic'
+                      indicator: '3D'
+                      data: 
+                        icon-key: ''
+                        counts: 'True'
+                        type: 'Fixed'
+                        speed-base: '-2'
+                        speed-scale: '0'
+                        source: 'roped'
+                        indicator: '2D'
+                      children:  {}
+        Mana-n: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            type: 'Mana'
+            min-value-base: '100'
+            min-value-scale: '0'
+            max-value-base: '100'
+            max-value-scale: '0'
+            indicator: '2D'
+          children: 
+            Mana-o: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                type: 'Mana'
+                value-base: '-100'
+                value-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Potion-p: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                potion: 'Absorption'
+                ambient: 'False'
+                tier-base: '1'
+                tier-scale: '0'
+                seconds-base: '6'
+                seconds-scale: '0'
+                indicator: '2D'
+              children:  {}

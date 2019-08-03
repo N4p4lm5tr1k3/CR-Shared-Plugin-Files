@@ -1,0 +1,15 @@
+limit: 3
+active: 2
+health: 20.0
+mana: 0.0
+accounts: 
+  acc1: 
+    classes:  {}
+    skills:  {}
+    binds:  {}
+    hunger: 1.0
+  acc2: 
+    classes:  {}
+    skills:  {}
+    binds:  {}
+    hunger: 1.0

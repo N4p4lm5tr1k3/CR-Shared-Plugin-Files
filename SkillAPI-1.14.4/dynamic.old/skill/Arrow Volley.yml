@@ -1,0 +1,136 @@
+Arrow Volley: 
+  name: 'Arrow Volley'
+  type: 'Offensive'
+  max-level: 2
+  skill-req: 'Sharpshooter'
+  skill-req-lvl: 1
+  needs-permission: 'false'
+  attributes: 
+    level-base: '5'
+    level-scale: '2'
+    cost-base: '1'
+    cost-scale: '0'
+    cooldown-base: '20'
+    cooldown-scale: '-4'
+    mana-base: '0'
+    mana-scale: '0'
+    points-spent-req-base: '0'
+    points-spent-req-scale: '0'
+    incompatible: 
+    - ''
+  msg: '&6{player} &2has cast &6{skill}'
+  icon: 'BOW'
+  icon-durability: 0
+  icon-data: 0
+  icon-lore: 
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&3Requires Sharpshooter.'
+  - '&eFires several arrows in a cone.'
+  - '&6When empowered: Grants a short'
+  - '&6speed boost.'
+  - ''
+  - '&2Damage: {attr:skilld.value}'
+  - '&2Arrows: {attr:projattack.amount}'
+  - '&2Cooldown: {attr:cooldown}'
+  desc:  []
+  components: 
+    Cast: 
+      type: 'trigger'
+      indicator: '3D'
+      data: 
+        icon-key: ''
+        indicator: '2D'
+      children: 
+        Mana-b: 
+          type: 'condition'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            type: 'Mana'
+            min-value-base: '100'
+            min-value-scale: '0'
+            max-value-base: '100'
+            max-value-scale: '0'
+            indicator: '2D'
+          children: 
+            Speed-c: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                multiplier-base: '1.4'
+                multiplier-scale: '0'
+                duration-base: '4'
+                duration-scale: '0'
+                indicator: '2D'
+              children:  {}
+            Mana-d: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: ''
+                counts: 'True'
+                type: 'Mana'
+                value-base: '-100'
+                value-scale: '0'
+                indicator: '2D'
+              children:  {}
+        Projectile-e: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: 'projattack'
+            counts: 'True'
+            projectile: 'Arrow'
+            flaming: 'False'
+            cost: ''
+            group: 'Enemy'
+            spread: 'Cone'
+            amount-base: '6'
+            amount-scale: '0'
+            velocity-base: '3'
+            velocity-scale: '0'
+            angle-base: '30'
+            angle-scale: '0'
+            position: '1'
+            forward-base: '0'
+            forward-scale: '0'
+            upward-base: '0'
+            upward-scale: '0'
+            right-base: '0'
+            right-scale: '0'
+            use-effect: 'False'
+            indicator: '2D'
+          children: 
+            Damage-f: 
+              type: 'mechanic'
+              indicator: '3D'
+              data: 
+                icon-key: 'skilld'
+                counts: 'True'
+                type: 'Damage'
+                value-base: '12'
+                value-scale: '6'
+                true: 'False'
+                classifier: 'default'
+                indicator: '2D'
+              children:  {}
+        Sound-g: 
+          type: 'mechanic'
+          indicator: '3D'
+          data: 
+            icon-key: ''
+            counts: 'True'
+            sound: 'Entity Arrow Shoot'
+            volume-base: '80'
+            volume-scale: '0'
+            pitch-base: '1.2'
+            pitch-scale: '0'
+            indicator: '2D'
+          children:  {}

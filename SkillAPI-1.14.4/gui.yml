@@ -1,0 +1,25 @@
+CLASS_SELECTION: 
+  rows: 1
+  pages: 1
+  slots: 
+    1: 
+      warden: 0
+stWarden: 
+  rows: 4
+  pages: 1
+  slots: 
+    1: 
+      arrow volley: 14
+      blade combo: 12
+      knockout punch: 18
+      counter: 19
+      critical strike: 27
+      rope dart: 7
+      blade rush: 21
+      slowfall: 9
+      blade technique: 3
+      vitality training: 0
+      vigorous leap: 10
+      sharpshooter: 5
+      traveller: 1
+      arrow rush: 23
