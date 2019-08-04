@@ -786,5 +786,5 @@ Undervision:
                         ambient: 'False'
                         tier-base: 1
                         tier-scale: 0
-                        seconds-base: 3
+                        seconds-base: 15
                         seconds-scale: 0
