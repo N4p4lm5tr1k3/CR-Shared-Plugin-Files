@@ -499,7 +499,7 @@ Shell of Protection:
   - '&eGrant yourself a strong health'
   - '&ebarrier.'
   - ''
-  - '&2Duration: &e{attr.skille.seconds}'
+  - '&2Duration: &e{attr:skille.seconds}'
   - '&2Cooldown: &e{attr:cooldown}'
   attributes:
     level-base: 1
