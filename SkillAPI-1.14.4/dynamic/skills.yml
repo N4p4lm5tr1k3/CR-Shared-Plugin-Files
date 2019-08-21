@@ -1,4 +1,205 @@
 loaded: false
+Aquatic Adaption:
+  name: 'Aquatic Adaption'
+  type: 'Passive'
+  max-level: 1
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: ''
+  combo: ''
+  indicator: '2D'
+  icon: 'Sugar Cane'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eBeginning at 1st level, you'
+  - '&ehave night vision and haste'
+  - '&ewhenever submerged in water.'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 0
+    cost-scale: 0
+    cooldown-base: 0
+    cooldown-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Initialize-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Passive-b:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            seconds-base: 2
+            seconds-scale: 0
+          children:
+            Water-c:
+              type: 'condition'
+              data:
+                icon-key: ''
+                state: 'In Water'
+              children:
+                Potion-d:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'False'
+                    potion: 'Night Vision'
+                    ambient: 'False'
+                    tier-base: 1
+                    tier-scale: 0
+                    seconds-base: 12
+                    seconds-scale: 0
+                Potion-e:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'False'
+                    potion: 'Fast Digging'
+                    ambient: 'False'
+                    tier-base: 1
+                    tier-scale: 0
+                    seconds-base: 3
+                    seconds-scale: 0
+Aquatic Evolution:
+  name: 'Aquatic Evolution'
+  type: 'Passive, Utility'
+  max-level: 1
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: ''
+  combo: ''
+  indicator: '2D'
+  icon: 'Glass Pane'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eYou have permanent'
+  - '&eWater Breathing.'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 0
+    cooldown-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Initialize-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Passive-b:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            seconds-base: 20
+            seconds-scale: 0
+          children:
+            Potion-c:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'False'
+                potion: 'Water Breathing'
+                ambient: 'False'
+                tier-base: 1
+                tier-scale: 0
+                seconds-base: 60
+                seconds-scale: 0
+Aquatic Superiority:
+  name: 'Aquatic Superiority'
+  type: 'Passive, Offense'
+  max-level: 1
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: ''
+  combo: ''
+  indicator: '2D'
+  icon: 'Golden Helmet'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eYou have Strength II while'
+  - '&esubmerged in water.'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 0
+    cooldown-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Initialize-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Passive-b:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            seconds-base: 2
+            seconds-scale: 0
+          children:
+            Water-c:
+              type: 'condition'
+              data:
+                icon-key: ''
+                state: 'In Water'
+              children:
+                Potion-d:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'False'
+                    potion: 'Increase Damage'
+                    ambient: 'False'
+                    tier-base: 2
+                    tier-scale: 0
+                    seconds-base: 3
+                    seconds-scale: 0
 Blindsight:
   name: 'Blindsight'
   type: 'Passive'
@@ -463,7 +664,7 @@ Scholar of Radiance:
                 min-light-base: 8
                 min-light-scale: 0
                 max-light-base: 16
-                max-light-scale: 
+                max-light-scale: NaN
               children:
                 Buff-d:
                   type: 'mechanic'
@@ -531,6 +732,94 @@ Shell of Protection:
             tier-scale: 2
             seconds-base: 12
             seconds-scale: 8
+Siren Song:
+  name: 'Siren Song'
+  type: 'Utility'
+  max-level: 2
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'String'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eDraw the attention of all hostile'
+  - '&emobs in a &e{attr:skilla.radius} &eblock radius and'
+  - '&einflict weakness on them.'
+  - ''
+  - '&2Duration: {attr:skille.seconds}'
+  - '&2Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 120
+    cooldown-scale: -30
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Area-b:
+          type: 'target'
+          data:
+            icon-key: 'skilla'
+            radius-base: 24
+            radius-scale: 8
+            group: 'Enemy'
+            wall: 'True'
+            caster: 'False'
+            max-base: 99
+            max-scale: 0
+            random: 'False'
+          children:
+            Taunt-c:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                amount-base: 1
+                amount-scale: 0
+            Entity Type-d:
+              type: 'condition'
+              data:
+                icon-key: ''
+                types:
+                - 'Player'
+                - 'Wolf'
+              children:
+                Else-e:
+                  type: 'condition'
+                  data:
+                    icon-key: ''
+                  children:
+                    Potion-f:
+                      type: 'mechanic'
+                      data:
+                        icon-key: 'skille'
+                        counts: 'True'
+                        potion: 'Weakness'
+                        ambient: 'True'
+                        tier-base: 2
+                        tier-scale: 0
+                        seconds-base: 20
+                        seconds-scale: 10
 Traveller:
   name: 'Traveller'
   type: 'Passive'
@@ -710,7 +999,7 @@ Turn Undead:
                         tier-base: 2
                         tier-scale: 0
                         seconds-base: 3
-                        seconds-scale: 1
+                        seconds-scale: 0
 Undervision:
   name: 'Undervision'
   type: 'Passive'
@@ -786,5 +1075,64 @@ Undervision:
                         ambient: 'False'
                         tier-base: 1
                         tier-scale: 0
-                        seconds-base: 15
+                        seconds-base: 3
                         seconds-scale: 0
+Waterborne:
+  name: 'Waterborne'
+  type: 'Passive, Mobility'
+  max-level: 1
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: ''
+  combo: ''
+  indicator: '2D'
+  icon: 'Fishing Rod'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eYou have permanent'
+  - "&eDolphin's Grace."
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 0
+    cooldown-scale: 0
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Initialize-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Passive-b:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            seconds-base: 20
+            seconds-scale: 0
+          children:
+            Potion-c:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'False'
+                potion: 'Dolphins Grace'
+                ambient: 'False'
+                tier-base: 1
+                tier-scale: 0
+                seconds-base: 60
+                seconds-scale: 0
