@@ -1,7 +1,7 @@
 loaded: false
 Sea:
-  name: 'Sea'
-  prefix: '&bSea'
+  name: 'Sea Domain'
+  prefix: '&bSea Domain'
   group: 'domain'
   mana: ''
   max-level: 5
@@ -40,8 +40,8 @@ Sea:
     strength-base: 0
     strength-scale: 0
 Sun:
-  name: 'Sun'
-  prefix: '&eSun'
+  name: 'Sun Domain'
+  prefix: '&eSun Domain'
   group: 'domain'
   mana: ''
   max-level: 5
@@ -81,8 +81,8 @@ Sun:
     strength-base: 0
     strength-scale: 0
 Cave:
-  name: 'Cave'
-  prefix: '&7Cave'
+  name: 'Cave Domain'
+  prefix: '&7Cave Domain'
   group: 'domain'
   mana: ''
   max-level: 5
