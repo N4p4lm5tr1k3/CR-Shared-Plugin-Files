@@ -303,15 +303,12 @@ Backstab:
                 modifier: 'Multiplier'
                 value-base: 1.5
                 value-scale: 0.5
-            Value-g:
+            Flag-g:
               type: 'condition'
               data:
                 icon-key: ''
+                type: 'Set'
                 key: 'mark'
-                min-value-base: 1
-                min-value-scale: 0
-                max-value-base: 999
-                max-value-scale: 0
               children:
                 Speed-h:
                   type: 'mechanic'
@@ -942,6 +939,114 @@ Siren Song:
                         tier-scale: 0
                         seconds-base: 20
                         seconds-scale: 10
+Sword Lunge:
+  name: 'Sword Lunge'
+  type: 'Offensive'
+  max-level: 2
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Wooden Sword'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - ''
+  - '&eDeals {attr:atk.value} damage to opponents in'
+  - '&ea {attr:ran.range} block line, marking them for'
+  - '&e{attr:mark.seconds} seconds. Marked opponents'
+  - '&eare inflicted with Slowness {attr:slowness.tier} and'
+  - '&eWeakness {attr:weakness.tier}.'
+  - ''
+  - '&2Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 1
+    level-scale: 3
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 10
+    cooldown-scale: -6
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Sound-b:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'True'
+            sound: 'Entity Player Hurt'
+            volume-base: 100
+            volume-scale: 0
+            pitch-base: 1.7
+            pitch-scale: 0
+        Linear-c:
+          type: 'target'
+          data:
+            icon-key: 'ran'
+            range-base: 8
+            range-scale: 4
+            tolerance-base: 3
+            tolerance-scale: 0
+            group: 'Enemy'
+            wall: 'True'
+            caster: 'False'
+            max-base: 99
+            max-scale: 0
+          children:
+            Damage-d:
+              type: 'mechanic'
+              data:
+                icon-key: 'atk'
+                counts: 'False'
+                type: 'Damage'
+                value-base: 8
+                value-scale: 4
+                true: 'False'
+                classifier: 'default'
+            Flag-e:
+              type: 'mechanic'
+              data:
+                icon-key: 'mark'
+                counts: 'False'
+                key: 'mark'
+                seconds-base: 8
+                seconds-scale: 2
+            Potion-f:
+              type: 'mechanic'
+              data:
+                icon-key: 'slowness'
+                counts: 'False'
+                potion: 'Slow'
+                ambient: 'True'
+                tier-base: 2
+                tier-scale: 1
+                seconds-base: 8
+                seconds-scale: 2
+            Potion-g:
+              type: 'mechanic'
+              data:
+                icon-key: 'weakness'
+                counts: 'True'
+                potion: 'Weakness'
+                ambient: 'True'
+                tier-base: 1
+                tier-scale: 1
+                seconds-base: 8
+                seconds-scale: 2
 Traveller:
   name: 'Traveller'
   type: 'Passive'
