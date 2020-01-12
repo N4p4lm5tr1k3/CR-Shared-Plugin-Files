@@ -16,6 +16,7 @@ Sea:
   - 'Aquatic Evolution'
   - 'Waterborne'
   - 'Aquatic Superiority'
+  - 'Backstab'
   icon: 'Lily Pad'
   icon-data: 0
   icon-lore:
@@ -56,6 +57,7 @@ Sun:
   - 'Daydreamer'
   - 'Traveller'
   - 'Turn Undead'
+  - 'Backstab'
   icon: 'Beacon'
   icon-data: 0
   icon-lore:
@@ -97,6 +99,7 @@ Cave:
   - 'Cave Dweller'
   - 'Blindsight'
   - 'Dedication'
+  - 'Backstab'
   icon: 'Iron Pickaxe'
   icon-data: 0
   icon-lore:
