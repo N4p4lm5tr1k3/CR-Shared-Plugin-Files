@@ -4,7 +4,7 @@ Sea:
   prefix: '&bSea Domain'
   group: 'domain'
   mana: ''
-  max-level: 5
+  max-level: 20
   parent: ''
   needs-permission: 'False'
   exp-source: 273
@@ -45,7 +45,7 @@ Sun:
   prefix: '&eSun Domain'
   group: 'domain'
   mana: ''
-  max-level: 5
+  max-level: 20
   parent: ''
   needs-permission: 'False'
   exp-source: 273
@@ -87,7 +87,7 @@ Cave:
   prefix: '&7Cave Domain'
   group: 'domain'
   mana: ''
-  max-level: 5
+  max-level: 20
   parent: ''
   needs-permission: 'False'
   exp-source: 273
