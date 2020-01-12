@@ -17,6 +17,7 @@ Sea:
   - 'Waterborne'
   - 'Aquatic Superiority'
   - 'Backstab'
+  - 'Sword Lunge'
   icon: 'Lily Pad'
   icon-data: 0
   icon-lore:
@@ -58,6 +59,7 @@ Sun:
   - 'Traveller'
   - 'Turn Undead'
   - 'Backstab'
+  - 'Sword Lunge'
   icon: 'Beacon'
   icon-data: 0
   icon-lore:
@@ -100,6 +102,7 @@ Cave:
   - 'Blindsight'
   - 'Dedication'
   - 'Backstab'
+  - 'Sword Lunge'
   icon: 'Iron Pickaxe'
   icon-data: 0
   icon-lore:
