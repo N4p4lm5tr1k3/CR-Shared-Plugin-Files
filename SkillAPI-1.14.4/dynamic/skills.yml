@@ -200,6 +200,128 @@ Aquatic Superiority:
                     tier-scale: 0
                     seconds-base: 3
                     seconds-scale: 0
+Backstab:
+  name: 'Backstab'
+  type: 'Offensive'
+  max-level: 2
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Iron Sword'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - ''
+  - '&eEnter stealth, reducing damage you'
+  - '&ereceive to a multiplier of {attr:def.value}'
+  - '&efor {attr:def.seconds} seconds. Your'
+  - '&enext attack deals {attr:atk.value} times'
+  - '&emore damage, provided you strike'
+  - '&ebefore stealth ends. Using Backstab'
+  - '&eon a marked target grants you a speed'
+  - '&emultiplier of {attr:spd.multiplier} for'
+  - '&efor {attr:spd.duration} seconds.'
+  - ''
+  - '&2Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 30
+    cooldown-scale: -6
+    mana-base: 0
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Sound-b:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            sound: 'Entity Shulker Open'
+            volume-base: 100
+            volume-scale: 0
+            pitch-base: 1.5
+            pitch-scale: 0
+        Defense Buff-c:
+          type: 'mechanic'
+          data:
+            icon-key: 'def'
+            counts: 'True'
+            type: 'Multiplier'
+            skill: 'False'
+            value-base: 0.7
+            value-scale: -0.2
+            seconds-base: 6
+            seconds-scale: 4
+        Trigger-d:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            trigger: 'Physical Damage'
+            duration-base: 6
+            duration-scale: 4
+            stackable: 'True'
+            once: 'True'
+            type: 'Both'
+            target: 'True'
+            dmg-min: 0
+            dmg-max: 999
+          children:
+            Sound-e:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'False'
+                sound: 'Entity Pig Death'
+                volume-base: 100
+                volume-scale: 0
+                pitch-base: 0.9
+                pitch-scale: 0
+            Buff-f:
+              type: 'mechanic'
+              data:
+                icon-key: 'atk'
+                counts: 'False'
+                immediate: 'True'
+                modifier: 'Multiplier'
+                value-base: 1.5
+                value-scale: 0.5
+            Value-g:
+              type: 'condition'
+              data:
+                icon-key: ''
+                key: 'mark'
+                min-value-base: 1
+                min-value-scale: 0
+                max-value-base: 999
+                max-value-scale: 0
+              children:
+                Speed-h:
+                  type: 'mechanic'
+                  data:
+                    icon-key: 'spd'
+                    counts: 'False'
+                    multiplier-base: 1.2
+                    multiplier-scale: 0.1
+                    duration-base: 4
+                    duration-scale: 2
 Blindsight:
   name: 'Blindsight'
   type: 'Passive'
