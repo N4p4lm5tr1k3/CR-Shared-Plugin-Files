@@ -231,7 +231,7 @@ Backstab:
   - '&2Cooldown: {attr:cooldown}'
   attributes:
     level-base: 1
-    level-scale: 0
+    level-scale: 3
     cost-base: 1
     cost-scale: 0
     cooldown-base: 30
