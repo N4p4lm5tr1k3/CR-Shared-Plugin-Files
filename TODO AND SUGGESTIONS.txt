@@ -1,0 +1,16 @@
+To-Do List for Changes:
+1. 
+
+Selected Domain Priority List:
+1. 
+
+Domain Ideas for SkillAPI:
+- Blood Domain(Think vampiric stuff like healing from damage dealt and debuffs in sunlight.)
+- Artic Domain(Can debuff enemies with weakness and slowness maybe?)
+- Sky Domain(Can jump very high and can slowly glide down from feather falling.)
+- Ender Domain(Teleporting, perhaps a FFXV style warpstrike as well. Maybe a small chance to passively teleport on damage?)
+- Fae Domain(Takes extra damage from iron based weapons, Maybe a wild magic like ability that will randomly choose a debuff like nausea/blindness/poison/short distance random teleport to a safe location, Maybe passively glows?)
+- Corruption Domain(Almost solely debuff skills that apply effects like wither/blindness/etc. Maybe each successful skill use on a target will give the target a 'stack' that when it hits a certain number will kill them instantly and replace them with a zombie?)
+
+Requested Changes:
+1. 
