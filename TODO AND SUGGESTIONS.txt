@@ -11,6 +11,7 @@ Domain Ideas for SkillAPI:
 - Ender Domain(Teleporting, perhaps a FFXV style warpstrike as well. Maybe a small chance to passively teleport on damage?)
 - Fae Domain(Takes extra damage from iron based weapons, Maybe a wild magic like ability that will randomly choose a debuff like nausea/blindness/poison/short distance random teleport to a safe location, Maybe passively glows?)
 - Corruption Domain(Almost solely debuff skills that apply effects like wither/blindness/etc. Maybe each successful skill use on a target will give the target a 'stack' that when it hits a certain number will kill them instantly and replace them with a zombie?)
+-Old Ones Domain(Derive strength from the old titans of the earth. Rip the strength from the bones of your enemies and bind them together into tools of massively descructive power. We may have evolved past the ways of the stone age, but true strength lies in the ancients.)
 
 Requested Changes:
 1. 
