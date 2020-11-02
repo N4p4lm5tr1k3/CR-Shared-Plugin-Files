@@ -130,7 +130,7 @@ Wizard:
   parent: ''
   needs-permission: 'False'
   exp-source: 273
-  mana-regen: 0
+  mana-regen: 1
   tree: 'Requirement'
   skills:
   - 'Magic Missile'
