@@ -1,10 +1,10 @@
 loaded: false
 Sea:
-  name: 'Sea Domain'
-  prefix: '&bSea Domain'
+  name: 'Sea'
+  prefix: '&bSea'
   group: 'domain'
   mana: ''
-  max-level: 20
+  max-level: 5
   parent: ''
   needs-permission: 'False'
   exp-source: 273
@@ -16,8 +16,6 @@ Sea:
   - 'Aquatic Evolution'
   - 'Waterborne'
   - 'Aquatic Superiority'
-  - 'Backstab'
-  - 'Sword Lunge'
   icon: 'Lily Pad'
   icon-data: 0
   icon-lore:
@@ -42,11 +40,11 @@ Sea:
     strength-base: 0
     strength-scale: 0
 Sun:
-  name: 'Sun Domain'
-  prefix: '&eSun Domain'
+  name: 'Sun'
+  prefix: '&eSun'
   group: 'domain'
   mana: ''
-  max-level: 20
+  max-level: 5
   parent: ''
   needs-permission: 'False'
   exp-source: 273
@@ -58,8 +56,6 @@ Sun:
   - 'Daydreamer'
   - 'Traveller'
   - 'Turn Undead'
-  - 'Backstab'
-  - 'Sword Lunge'
   icon: 'Beacon'
   icon-data: 0
   icon-lore:
@@ -85,11 +81,11 @@ Sun:
     strength-base: 0
     strength-scale: 0
 Cave:
-  name: 'Cave Domain'
-  prefix: '&7Cave Domain'
+  name: 'Cave'
+  prefix: '&7Cave'
   group: 'domain'
   mana: ''
-  max-level: 20
+  max-level: 5
   parent: ''
   needs-permission: 'False'
   exp-source: 273
@@ -101,8 +97,6 @@ Cave:
   - 'Cave Dweller'
   - 'Blindsight'
   - 'Dedication'
-  - 'Backstab'
-  - 'Sword Lunge'
   icon: 'Iron Pickaxe'
   icon-data: 0
   icon-lore:
@@ -117,6 +111,44 @@ Cave:
     health-scale: 0
     mana-base: 0
     mana-scale: 0
+    vitality-base: 0
+    vitality-scale: 0
+    spirit-base: 0
+    spirit-scale: 0
+    intelligence-base: 0
+    intelligence-scale: 0
+    dexterity-base: 0
+    dexterity-scale: 0
+    strength-base: 0
+    strength-scale: 0
+Wizard:
+  name: 'Wizard'
+  prefix: ''
+  group: 'class'
+  mana: '&2Mana'
+  max-level: 20
+  parent: ''
+  needs-permission: 'False'
+  exp-source: 273
+  mana-regen: 0
+  tree: 'Requirement'
+  skills:
+  - 'Magic Missile'
+  - 'Conjure Elements'
+  icon: 'Stick'
+  icon-data: 0
+  icon-lore:
+  - '&dWizards devote their lives to studying '
+  - '&darcane magic. Their spells can change'
+  - '&dthe world around them.'
+  blacklist:
+  - ''
+  action-bar: ''
+  attributes:
+    health-base: 20
+    health-scale: 0
+    mana-base: 24
+    mana-scale: 4
     vitality-base: 0
     vitality-scale: 0
     spirit-base: 0
