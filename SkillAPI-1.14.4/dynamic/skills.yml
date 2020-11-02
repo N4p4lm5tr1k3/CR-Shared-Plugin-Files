@@ -200,125 +200,6 @@ Aquatic Superiority:
                     tier-scale: 0
                     seconds-base: 3
                     seconds-scale: 0
-Backstab:
-  name: 'Backstab'
-  type: 'Offensive'
-  max-level: 2
-  skill-req: ''
-  skill-req-lvl: 1
-  needs-permission: 'False'
-  msg: '&6{player} &2has cast &6{skill}'
-  combo: ''
-  indicator: '2D'
-  icon: 'Iron Sword'
-  icon-data: 0
-  icon-lore:
-  - '&d{name} &7({level}/{max})'
-  - '&2Type: &6{type}'
-  - ''
-  - '{req:level}Level: {attr:level}'
-  - ''
-  - '&eEnter stealth, reducing damage you'
-  - '&ereceive to a multiplier of {attr:def.value}'
-  - '&efor {attr:def.seconds} seconds. Your'
-  - '&enext attack deals {attr:atk.value} times'
-  - '&emore damage, provided you strike'
-  - '&ebefore stealth ends. Using Backstab'
-  - '&eon a marked target grants you a speed'
-  - '&emultiplier of {attr:spd.multiplier} for'
-  - '&efor {attr:spd.duration} seconds.'
-  - ''
-  - '&2Cooldown: {attr:cooldown}'
-  attributes:
-    level-base: 1
-    level-scale: 3
-    cost-base: 1
-    cost-scale: 0
-    cooldown-base: 30
-    cooldown-scale: -6
-    mana-base: 0
-    mana-scale: 0
-    points-spent-req-base: 0
-    points-spent-req-scale: 0
-    incompatible:
-    - ''
-  components:
-    Cast-a:
-      type: 'trigger'
-      data:
-        icon-key: ''
-      children:
-        Sound-b:
-          type: 'mechanic'
-          data:
-            icon-key: ''
-            counts: 'False'
-            sound: 'Entity Shulker Open'
-            volume-base: 100
-            volume-scale: 0
-            pitch-base: 1.5
-            pitch-scale: 0
-        Defense Buff-c:
-          type: 'mechanic'
-          data:
-            icon-key: 'def'
-            counts: 'True'
-            type: 'Multiplier'
-            skill: 'False'
-            value-base: 0.7
-            value-scale: -0.2
-            seconds-base: 6
-            seconds-scale: 4
-        Trigger-d:
-          type: 'mechanic'
-          data:
-            icon-key: ''
-            counts: 'False'
-            trigger: 'Physical Damage'
-            duration-base: 6
-            duration-scale: 4
-            stackable: 'True'
-            once: 'True'
-            type: 'Both'
-            target: 'True'
-            dmg-min: 0
-            dmg-max: 999
-          children:
-            Sound-e:
-              type: 'mechanic'
-              data:
-                icon-key: ''
-                counts: 'False'
-                sound: 'Entity Pig Death'
-                volume-base: 100
-                volume-scale: 0
-                pitch-base: 0.9
-                pitch-scale: 0
-            Buff-f:
-              type: 'mechanic'
-              data:
-                icon-key: 'atk'
-                counts: 'False'
-                immediate: 'True'
-                modifier: 'Multiplier'
-                value-base: 1.5
-                value-scale: 0.5
-            Flag-g:
-              type: 'condition'
-              data:
-                icon-key: ''
-                type: 'Set'
-                key: 'mark'
-              children:
-                Speed-h:
-                  type: 'mechanic'
-                  data:
-                    icon-key: 'spd'
-                    counts: 'False'
-                    multiplier-base: 1.2
-                    multiplier-scale: 0.1
-                    duration-base: 4
-                    duration-scale: 2
 Blindsight:
   name: 'Blindsight'
   type: 'Passive'
@@ -516,6 +397,221 @@ Cave Dweller:
                             tier-scale: 0
                             seconds-base: 3
                             seconds-scale: 0
+Conjure Elements:
+  name: 'Conjure Elements'
+  type: 'Mass Offensive'
+  max-level: 4
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Nether Star'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eMark the area around you and'
+  - '&ecause it to deal damage over time'
+  - '&eto nearby mobs.'
+  - ''
+  - '&2Damage/2 sec: {attr:damage1.value}'
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 50
+    cooldown-scale: -10
+    mana-base: 20
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Item-b:
+          type: 'condition'
+          data:
+            icon-key: ''
+            check-mat: 'True'
+            material: 'Book'
+            check-data: 'False'
+            check-lore: 'False'
+            check-name: 'True'
+            name: "Deus' Fire Storm"
+            regex: 'False'
+          children:
+            Else-c:
+              type: 'condition'
+              data:
+                icon-key: ''
+              children:
+                Offset-d:
+                  type: 'target'
+                  data:
+                    icon-key: ''
+                    forward-base: 0
+                    forward-scale: 0
+                    upward-base: 0
+                    upward-scale: 0
+                    right-base: 0
+                    right-scale: 0
+                  children:
+                    Repeat-e:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        repetitions-base: 5
+                        repetitions-scale: 0
+                        period: 2
+                        delay: 2
+                        stop-on-fail: 'False'
+                      children:
+                        Particle-f:
+                          type: 'mechanic'
+                          data:
+                            icon-key: ''
+                            counts: 'True'
+                            particle: 'Smoke'
+                            arrangement: 'Circle'
+                            radius-base: 5
+                            radius-scale: 0
+                            particles-base: 20
+                            particles-scale: 0
+                            direction: 'XZ'
+                            data: 0
+                            forward: 0
+                            upward: 0.5
+                            right: 0
+                        Area-g:
+                          type: 'target'
+                          data:
+                            icon-key: ''
+                            radius-base: 5
+                            radius-scale: 0
+                            group: 'Enemy'
+                            wall: 'True'
+                            caster: 'False'
+                            max-base: 99
+                            max-scale: 0
+                            random: 'False'
+                          children:
+                            Damage-h:
+                              type: 'mechanic'
+                              data:
+                                icon-key: 'damage1'
+                                counts: 'False'
+                                type: 'Damage'
+                                value-base: 8
+                                value-scale: 2
+                                true: 'False'
+                                classifier: 'default'
+            Area-i:
+              type: 'target'
+              data:
+                icon-key: ''
+                radius-base: 6
+                radius-scale: 0
+                group: 'Enemy'
+                wall: 'True'
+                caster: 'False'
+                max-base: 99
+                max-scale: 0
+                random: 'False'
+              children:
+                Damage-j:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'False'
+                    type: 'Damage'
+                    value-base: 10
+                    value-scale: 3
+                    true: 'False'
+                    classifier: 'default'
+            Offset-k:
+              type: 'target'
+              data:
+                icon-key: ''
+                forward-base: 0
+                forward-scale: 0
+                upward-base: 0
+                upward-scale: 0
+                right-base: 0
+                right-scale: 0
+              children:
+                Block-l:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'False'
+                    shape: 'Sphere'
+                    type: 'Air'
+                    block: 'Fire'
+                    data: 0
+                    seconds-base: 5
+                    seconds-scale: 0
+                    forward-base: 0
+                    forward-scale: 0
+                    upward-base: 0
+                    upward-scale: 0
+                    right-base: 0
+                    right-scale: 0
+                    radius-base: 6
+                    radius-scale: 0
+            Immunity-m:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'False'
+                type: 'Fire'
+                seconds-base: 5
+                seconds-scale: 0
+                multiplier-base: 0
+                multiplier-scale: 0
+            Immunity-n:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'False'
+                type: 'Fire Tick'
+                seconds-base: 5
+                seconds-scale: 0
+                multiplier-base: 0
+                multiplier-scale: 0
+            Cooldown-o:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'False'
+                skill: 'Conjure Elements'
+                type: 'Seconds'
+                value-base: 20
+                value-scale: -6
+        Sound-p:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            sound: 'Block Anvil Place'
+            volume-base: 100
+            volume-scale: 0
+            pitch-base: 1.2
+            pitch-scale: 0
 Daydreamer:
   name: 'Daydreamer'
   type: 'Passive'
@@ -730,6 +826,213 @@ Inspire:
                 tier-scale: 0
                 seconds-base: 60
                 seconds-scale: 30
+Magic Missile:
+  name: 'Magic Missile'
+  type: 'Main Offensive'
+  max-level: 4
+  skill-req: ''
+  skill-req-lvl: 1
+  needs-permission: 'False'
+  msg: '&6{player} &2has cast &6{skill}'
+  combo: ''
+  indicator: '2D'
+  icon: 'Arrow'
+  icon-data: 0
+  icon-lore:
+  - '&d{name} &7({level}/{max})'
+  - '&2Type: &6{type}'
+  - ''
+  - '{req:level}Level: {attr:level}'
+  - '{req:cost}Cost: {attr:cost}'
+  - ''
+  - '&eLaunches a damage-dealing'
+  - '&eprojectile in the targeted direction.'
+  - '&eDeals less damage against players.'
+  - ''
+  - '&2Damage: {attr:damage1.value}'
+  - '&2Mana: {attr:mana}'
+  - '&2Cooldown: {attr:cooldown}'
+  attributes:
+    level-base: 1
+    level-scale: 0
+    cost-base: 1
+    cost-scale: 0
+    cooldown-base: 8
+    cooldown-scale: -2
+    mana-base: 15
+    mana-scale: 0
+    points-spent-req-base: 0
+    points-spent-req-scale: 0
+    incompatible:
+    - ''
+  components:
+    Cast-a:
+      type: 'trigger'
+      data:
+        icon-key: ''
+      children:
+        Item-b:
+          type: 'condition'
+          data:
+            icon-key: ''
+            check-mat: 'True'
+            material: 'Book'
+            check-data: 'False'
+            check-lore: 'False'
+            check-name: 'True'
+            name: "Zwei's Fireball"
+            regex: 'False'
+          children:
+            Else-c:
+              type: 'condition'
+              data:
+                icon-key: ''
+              children:
+                Particle Projectile-d:
+                  type: 'mechanic'
+                  data:
+                    icon-key: ''
+                    counts: 'True'
+                    group: 'Enemy'
+                    spread: 'Cone'
+                    amount-base: 1
+                    amount-scale: 0
+                    velocity-base: 3
+                    velocity-scale: 0
+                    angle-base: 30
+                    angle-scale: 0
+                    position: 0
+                    forward-base: 0
+                    forward-scale: 0
+                    upward-base: 0
+                    upward-scale: 0
+                    right-base: 0
+                    right-scale: 0
+                    gravity: -0.1
+                    pierce: 'False'
+                    particle: 'Cloud'
+                    arrangement: 'Circle'
+                    radius-base: 4
+                    radius-scale: 0
+                    particles-base: 20
+                    particles-scale: 0
+                    direction: 'XZ'
+                    visible-radius: 25
+                    dx: 0
+                    dy: 0
+                    dz: 0
+                    speed: 1
+                    amount: 1
+                    frequency: 0.05
+                    lifespan: 3
+                    use-effect: 'False'
+                  children:
+                    Entity Type-e:
+                      type: 'condition'
+                      data:
+                        icon-key: ''
+                        types:
+                        - 'Player'
+                      children:
+                        Damage-f:
+                          type: 'mechanic'
+                          data:
+                            icon-key: ''
+                            counts: 'False'
+                            type: 'Damage'
+                            value-base: 8
+                            value-scale: 2
+                            true: 'False'
+                            classifier: 'default'
+                        Else-g:
+                          type: 'condition'
+                          data:
+                            icon-key: ''
+                          children:
+                            Damage-h:
+                              type: 'mechanic'
+                              data:
+                                icon-key: 'damage1'
+                                counts: 'False'
+                                type: 'Damage'
+                                value-base: 15
+                                value-scale: 5
+                                true: 'False'
+                                classifier: 'default'
+            Particle Projectile-i:
+              type: 'mechanic'
+              data:
+                icon-key: ''
+                counts: 'True'
+                group: 'Enemy'
+                spread: 'Cone'
+                amount-base: 1
+                amount-scale: 0
+                velocity-base: 2.5
+                velocity-scale: 0
+                angle-base: 30
+                angle-scale: 0
+                position: 0
+                forward-base: 0
+                forward-scale: 0
+                upward-base: 0
+                upward-scale: 0
+                right-base: 0
+                right-scale: 0
+                gravity: -0.1
+                pierce: 'False'
+                particle: 'Smoke'
+                arrangement: 'Circle'
+                radius-base: 4
+                radius-scale: 0
+                particles-base: 20
+                particles-scale: 0
+                direction: 'XZ'
+                data: 0
+                frequency: 0.05
+                lifespan: 3
+                use-effect: 'False'
+              children:
+                Area-j:
+                  type: 'target'
+                  data:
+                    icon-key: ''
+                    radius-base: 4
+                    radius-scale: 0
+                    group: 'Enemy'
+                    wall: 'True'
+                    caster: 'True'
+                    max-base: 99
+                    max-scale: 0
+                    random: 'False'
+                  children:
+                    Damage-k:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        type: 'Damage'
+                        value-base: 12
+                        value-scale: 2
+                        true: 'False'
+                        classifier: 'default'
+                    Fire-l:
+                      type: 'mechanic'
+                      data:
+                        icon-key: ''
+                        counts: 'False'
+                        seconds-base: 10
+                        seconds-scale: 0
+        Sound-m:
+          type: 'mechanic'
+          data:
+            icon-key: ''
+            counts: 'False'
+            sound: 'Entity Skeleton Shoot'
+            volume-base: 100
+            volume-scale: 0
+            pitch-base: 1.5
+            pitch-scale: 0
 Scholar of Radiance:
   name: 'Scholar of Radiance'
   type: 'Passive'
@@ -939,114 +1242,6 @@ Siren Song:
                         tier-scale: 0
                         seconds-base: 20
                         seconds-scale: 10
-Sword Lunge:
-  name: 'Sword Lunge'
-  type: 'Offensive'
-  max-level: 2
-  skill-req: ''
-  skill-req-lvl: 1
-  needs-permission: 'False'
-  msg: '&6{player} &2has cast &6{skill}'
-  combo: ''
-  indicator: '2D'
-  icon: 'Wooden Sword'
-  icon-data: 0
-  icon-lore:
-  - '&d{name} &7({level}/{max})'
-  - '&2Type: &6{type}'
-  - ''
-  - '{req:level}Level: {attr:level}'
-  - ''
-  - '&eDeals {attr:atk.value} damage to opponents in'
-  - '&ea {attr:ran.range} block line, marking them for'
-  - '&e{attr:mark.seconds} seconds. Marked opponents'
-  - '&eare inflicted with Slowness {attr:slowness.tier} and'
-  - '&eWeakness {attr:weakness.tier}.'
-  - ''
-  - '&2Cooldown: {attr:cooldown}'
-  attributes:
-    level-base: 1
-    level-scale: 3
-    cost-base: 1
-    cost-scale: 0
-    cooldown-base: 10
-    cooldown-scale: -6
-    mana-base: 0
-    mana-scale: 0
-    points-spent-req-base: 0
-    points-spent-req-scale: 0
-    incompatible:
-    - ''
-  components:
-    Cast-a:
-      type: 'trigger'
-      data:
-        icon-key: ''
-      children:
-        Sound-b:
-          type: 'mechanic'
-          data:
-            icon-key: ''
-            counts: 'True'
-            sound: 'Entity Player Hurt'
-            volume-base: 100
-            volume-scale: 0
-            pitch-base: 1.7
-            pitch-scale: 0
-        Linear-c:
-          type: 'target'
-          data:
-            icon-key: 'ran'
-            range-base: 8
-            range-scale: 4
-            tolerance-base: 3
-            tolerance-scale: 0
-            group: 'Enemy'
-            wall: 'True'
-            caster: 'False'
-            max-base: 99
-            max-scale: 0
-          children:
-            Damage-d:
-              type: 'mechanic'
-              data:
-                icon-key: 'atk'
-                counts: 'False'
-                type: 'Damage'
-                value-base: 8
-                value-scale: 4
-                true: 'False'
-                classifier: 'default'
-            Flag-e:
-              type: 'mechanic'
-              data:
-                icon-key: 'mark'
-                counts: 'False'
-                key: 'mark'
-                seconds-base: 8
-                seconds-scale: 2
-            Potion-f:
-              type: 'mechanic'
-              data:
-                icon-key: 'slowness'
-                counts: 'False'
-                potion: 'Slow'
-                ambient: 'True'
-                tier-base: 2
-                tier-scale: 1
-                seconds-base: 8
-                seconds-scale: 2
-            Potion-g:
-              type: 'mechanic'
-              data:
-                icon-key: 'weakness'
-                counts: 'True'
-                potion: 'Weakness'
-                ambient: 'True'
-                tier-base: 1
-                tier-scale: 1
-                seconds-base: 8
-                seconds-scale: 2
 Traveller:
   name: 'Traveller'
   type: 'Passive'
